@@ -8,6 +8,7 @@ This project aims to predict the difficulty level of French sentences using vari
 ## Deliverables
 - **GitHub Link:** [GitHub Project Page](https://github.com/yourusername/project)
 - **Video Link:** [Project Presentation Video](https://youtu.be/yourvideo)
+- **Kaggle Link:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
 
 ## Table of Contents
 1. [Introduction](#introduction)
