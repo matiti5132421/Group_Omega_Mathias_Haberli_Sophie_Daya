@@ -3,11 +3,13 @@
 **Group OMEGA: Mathias Häberli, Sophie Daya**
 
 ## Project Description
-This project aims to predict the difficulty level of French sentences using various machine learning models, including Logistic Regression, KNN, Decision Tree, Random Forest, and CamemBERT.
+This project aims to predict the difficulty level of French sentences using various machine learning models, including Logistic Regression, KNN, Decision Tree, Random Forest, and CamemBERT. Throughout this README and the accompanying GitHub repository, we will explore which model is the most capable of classifying French texts according to their difficulty level. Additionally, after demonstrating and training the best model, we will apply it in a real-world scenario: an application.
+
+We are proud to present the first application from our startup, "LogoRank." We hope this README will not only convince you of our approach but also provide you with valuable insights into text classification. Join us on this exciting journey as we push the boundaries of natural language processing and machine learning!
 
 ## Deliverables
 - **GitHub Link:** [GitHub Project Page](https://github.com/yourusername/project)
-- **Video Link:** [Project Presentation Video](https://youtu.be/yourvideo)
+- **Youtube Link:** [App Presentation Video](https://youtu.be/yourvideo)
 - **Kaggle Link:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
 
 ## Table of Contents
