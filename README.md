@@ -11,6 +11,7 @@ We are proud to present the first application from our startup, "LogoRank." We h
 - **GitHub Link:** [GitHub Project Page](https://github.com/yourusername/project)
 - **Youtube Link:** [App Presentation Video](https://youtu.be/yourvideo)
 - **Kaggle Link:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
+- **Waitlist Link:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -28,8 +29,11 @@ We are proud to present the first application from our startup, "LogoRank." We h
 4. [Additional Analysis](#additional-analysis)
    - [Sentence Length Analysis](#sentence-length-analysis)
    - [POS Tag Analysis](#pos-tag-analysis)
-5. [Conclusion](#conclusion)
-6. [References](#references)
+5. [Our App LogoRank](#our-app-logorank)
+   - [Principle and functionality](#principle-and-functionality)
+   - [Demonstration in a video](#Demonstration-in-a-video)
+6. [Conclusion](#conclusion)
+7. [References](#references)
 
 ## Introduction
 In this project, we aim to develop and compare several machine learning models to predict the difficulty level of French sentences. The difficulty levels are categorized into six classes: A1, A2, B1, B2, C1, and C2, corresponding to different proficiency levels as per the Common European Framework of Reference for Languages (CEFR).
