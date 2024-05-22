@@ -7,6 +7,8 @@ This project aims to predict the difficulty level of French sentences using vari
 
 We are proud to present the first application from our startup, "LogoRank." We hope this README will not only convince you of our approach but also provide you with valuable insights into text classification. Join us on this exciting journey as we push the boundaries of natural language processing and machine learning!
 
+PS: Part ... to ..., you can directly go to ...
+
 ## Deliverables
 - **GitHub:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
 - **Code:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
@@ -19,7 +21,7 @@ We are proud to present the first application from our startup, "LogoRank." We h
 2. [Data](#data-presentation)
    * [Data Presentation](#data-presentation)
    * [Data Preparation](#data-preparation)
-4. [Models and Methodology](#models-and-methodology)
+3. [Models and Methodology](#models-and-methodology)
    - [Logistic Regression](#logistic-regression)
    - [KNN](#knn)
    - [Decision Tree](#decision-tree)
@@ -482,13 +484,81 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 
 #### Metrics and Results
 
+##### Random Forest Model Evaluation (Class-wise)
 
+| Difficulty Level | Precision | Recall   | F1-Score |
+|------------------|-----------|----------|----------|
+| A1               | 0.468750  | 0.813253 | 0.594714 |
+| A2               | 0.344000  | 0.272152 | 0.303887 |
+| B1               | 0.341880  | 0.240964 | 0.282686 |
+| B2               | 0.421875  | 0.352941 | 0.384342 |
+| C1               | 0.394558  | 0.381579 | 0.387960 |
+| C2               | 0.445161  | 0.418182 | 0.431250 |
 
+##### Random Forest Model Evaluation (Overall)
 
+| Model         | Precision | Recall   | F1-Score | Accuracy |
+|---------------|-----------|----------|----------|----------|
+| Random Forest | 0.403008  | 0.415625 | 0.398534 | 0.415625 |
 
+##### Commentary
+
+The Random Forest model shows strong performance, particularly for the A1 difficulty level, with high precision and recall. However, its performance decreases for higher difficulty levels such as A2, B1, B2, C1, and C2, indicating some difficulty in distinguishing more complex sentences. The overall accuracy is 41.56%, suggesting that the Random Forest model can classify sentences with reasonable accuracy, but there is still room for improvement, especially for the more challenging levels.
 
 ### CamemBERT
-Description of the model, methodology, and hyper-parameter optimization details.
+
+CamemBERT is a transformer-based model specifically designed for the French language, building on the BERT (Bidirectional Encoder Representations from Transformers) architecture. It excels at understanding the context of words in sentences, making it a powerful tool for text classification tasks. In this section, we use CamemBERT to predict the difficulty levels of French sentences.
+
+#### How Does the CamemBERT Model Work?
+
+1. *Pre-training*: CamemBERT is pre-trained on a large corpus of French text using a masked language modeling objective. During pre-training, the model learns to predict missing words in sentences, allowing it to understand context and capture nuanced language patterns.
+
+2. *Fine-tuning*: After pre-training, CamemBERT is fine-tuned on a specific task, such as text classification. During fine-tuning, the model's parameters are adjusted using labeled data to optimize performance on the target task.
+
+3. *Transformer Architecture*: CamemBERT uses a transformer architecture, which includes self-attention mechanisms to weigh the importance of different words in a sentence. This allows the model to capture long-range dependencies and contextual information.
+
+#### Strengths and Weaknesses
+
+- *Strengths*:
+  - *Contextual Understanding*: CamemBERT excels at understanding the context of words within sentences, making it highly accurate for language-related tasks.
+  - *Pre-training*: The extensive pre-training on a large French corpus provides a strong foundation for various downstream tasks.
+  - *Transfer Learning*: Fine-tuning on specific tasks leverages the model's pre-trained knowledge, allowing for efficient adaptation to new tasks.
+
+- *Weaknesses*:
+  - *Computational Resources*: CamemBERT requires significant computational power and memory, especially during training.
+  - *Complexity*: The transformer architecture can be complex to understand and implement compared to simpler models.
+
+#### Practical Uses
+
+CamemBERT is used in applications such as text classification, sentiment analysis, and named entity recognition. For instance, it can classify customer reviews based on sentiment, identify named entities in legal documents, and predict the difficulty level of educational content.
+
+By leveraging the strengths of CamemBERT, we can achieve highly accurate and context-aware predictions for our text classification task.
+
+#### Code Explanation
+
+The python code of the CamemBERT model is quite important, in consequences let's focus on most important parts:
+
+```python
+# Function to encode data
+def encode_data(tokenizer, df):
+    texts = df['sentence'].tolist()
+    labels = df['difficulty'].map({'A1': 0, 'A2': 1, 'B1': 2, 'B2': 3, 'C1': 4, 'C2': 5}).tolist()
+    encodings = tokenizer(texts, truncation=True, padding='max_length', max_length=128)
+    return Dataset.from_dict({
+        'input_ids': encodings['input_ids'],
+        'attention_mask': encodings['attention_mask'],
+        'labels': labels
+    })
+# Load the model
+model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)
+```
+**Data Encoding**: This function encodes the text data and maps the difficulty labels to numerical values. The tokenizer transforms the sentences into input IDs and attention masks.
+
+**Model Initialization**: The `CamembertForSequenceClassification` model is loaded with a pre-trained 'camembert-base' and configured for a 6-class classification task.
+
+
+
+
 
 ## Results
 ### Performance Metrics
