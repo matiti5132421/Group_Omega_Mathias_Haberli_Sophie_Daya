@@ -16,26 +16,28 @@ We are proud to present the first application from our startup, "LogoRank." We h
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Data Presentation](#data-presentation)
-3. [Models and Methodology](#models-and-methodology)
+2. [Data](#data-presentation)
+   * [Data Presentation](#data-presentation)
+   * [Data Preparation](#data-preparation)
+4. [Models and Methodology](#models-and-methodology)
    - [Logistic Regression](#logistic-regression)
    - [KNN](#knn)
    - [Decision Tree](#decision-tree)
    - [Random Forest](#random-forest)
    - [CamemBERT](#camembert)
-4. [Results](#results)
+5. [Results](#results)
    - [Performance Metrics](#performance-metrics)
    - [Best Model Analysis](#best-model-analysis)
    - [Confusion Matrices](#confusion-matrices)
    - [Examples of Erroneous Predictions](#examples-of-erroneous-predictions)
-5. [Additional Analysis](#additional-analysis)
+6. [Additional Analysis](#additional-analysis)
    - [Sentence Length Analysis](#sentence-length-analysis)
    - [POS Tag Analysis](#pos-tag-analysis)
-6. [Our App LogoRank](#our-app-logorank)
+7. [Our App LogoRank](#our-app-logorank)
    - [Principle and functionality](#principle-and-functionality)
    - [Demonstration in a video](#Demonstration-in-a-video)
-7. [Conclusion](#conclusion)
-8. [References and Participation Report](#references)
+8. [Conclusion](#conclusion)
+9. [References and Participation Report](#references)
 
 ## 1. Introduction
 To begin with, it is essential to understand that multiple approaches were available to develop our French text difficulty classification model. We experimented with five different machine learning models to achieve the best classification results. These models include:
@@ -74,7 +76,7 @@ The `difficulty` column indicates the difficulty level of the sentences, ranging
 
 For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible. Concretly, in python code it looks like this:
 
-### 2.2. Data Processing
+### 2.2. Data Preparation
 
 Concretly, in python code it looks like this:
 
