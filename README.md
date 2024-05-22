@@ -54,6 +54,37 @@ Without further ado, let's begin with an overview of the datasets we used!
 
 ## 2. Data Pesentation
 
+To train our models, we used various datasets. The most important was the `training_data.csv`, which you can find here: [dataset/training_data.csv]. This dataset consists of 4800 French texts organized as follows:
+
+| id  | sentence                                                                 | difficulty |
+| --- | ------------------------------------------------------------------------ | ---------- |
+| 0   | Les coûts kilométriques réels peuvent diverger...                        | C1         |
+| 1   | Le bleu, c'est ma couleur préférée mais je n'a...                        | A1         |
+| 2   | Le test de niveau en français est sur le site ...                        | A1         |
+| 3   | Est-ce que ton mari est aussi de Boston?                                 | A1         |
+| 4   | Dans les écoles de commerce, dans les couloirs...                        | B1         |
+| ... | ...                                                                      | ...        |
+| 4795| C'est pourquoi, il décida de remplacer les hab...                        | B2         |
+| 4796| Il avait une de ces pâleurs splendides qui don...                        | C1         |
+| 4797| Et le premier samedi de chaque mois, venez ren...                        | A2         |
+| 4798| Les coûts liés à la journalisation n'étant pas...                        | C2         |
+| 4799| Sur le sable, la mer haletait de toute la resp...                        | C2         |
+
+The `difficulty` column indicates the difficulty level of the sentences, ranging from A1 to C2, with A1 being the simplest and C2 being the most complex.
+
+### 2.1. Data Preparation
+
+For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible.
+
+
+
+
+
+
+
+
+
+
 
 
 ## Models and Methodology
