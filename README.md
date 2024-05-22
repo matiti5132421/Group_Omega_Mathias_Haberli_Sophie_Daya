@@ -536,7 +536,7 @@ By leveraging the strengths of CamemBERT, we can achieve highly accurate and con
 
 #### Code Explanation
 
-The python code of the CamemBERT model is quite important, in consequences let's focus on most important parts:
+The python code of the CamemBERT model is quite important, in consequences let's focus on most important parts. But you can find all the code on the section 6.1. of our Jupyter Notebook, here:  [Jupyter_Notebook.ipynb](Jupyter_Notebook.ipynb)
 
 ```python
 # Function to encode data
@@ -556,7 +556,25 @@ model = CamembertForSequenceClassification.from_pretrained('camembert-base', num
 
 **Model Initialization**: The `CamembertForSequenceClassification` model is loaded with a pre-trained 'camembert-base' and configured for a 6-class classification task.
 
-
+```python
+# Define training arguments
+training_args = TrainingArguments(
+    output_dir='./results',
+    num_train_epochs=6,
+    per_device_train_batch_size=21,
+    warmup_steps=500,
+    weight_decay=0.01,
+    logging_dir='./logs',
+    logging_steps=50,
+    learning_rate=15e-5,
+    fp16=False,
+    evaluation_strategy="epoch",
+    save_strategy="epoch",
+    load_best_model_at_end=True,
+    metric_for_best_model='accuracy',
+    greater_is_better=True
+)
+```
 
 
 
