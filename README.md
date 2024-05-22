@@ -635,6 +635,28 @@ The `trainer.train()` method initiates the model training according to the set p
 
 This methodology ensures meticulous tracking and optimization of each phase from training through to evaluation for optimal outcomes.
 
+#### Metrics and Results
+
+##### CamemBERT Model Evaluation (Class-wise)
+
+| Difficulty Level | Precision | Recall   | F1-Score |
+|------------------|-----------|----------|----------|
+| A1               | 0.779070  | 0.736264 | 0.757062 |
+| A2               | 0.494624  | 0.638889 | 0.557576 |
+| B1               | 0.607143  | 0.554348 | 0.579545 |
+| B2               | 0.448276  | 0.557143 | 0.496815 |
+| C1               | 0.487805  | 0.563380 | 0.522876 |
+| C2               | 0.791667  | 0.452381 | 0.575758 |
+
+##### CamemBERT Model Evaluation (Overall)
+
+| Model      | Precision | Recall   | F1-Score | Accuracy |
+|------------|-----------|----------|----------|----------|
+| CamemBERT  | 0.614331  | 0.585417 | 0.588794 | 0.585417 |
+
+##### Commentary
+
+The CamemBERT model demonstrates robust performance across various difficulty levels, particularly excelling in the precision and recall for the A1 level. This indicates that the model is highly effective in accurately identifying simpler sentences. While the model also shows good precision in the C2 level, its recall is lower, suggesting some challenges in consistently identifying the most complex sentences. Overall, the model achieves a solid accuracy of 58.54%, reflecting its capability to handle text classification with a nuanced understanding of French sentence complexity. This performance makes CamemBERT a strong candidate for tasks requiring detailed linguistic analysis, showing potential for further fine-tuning and application in more complex linguistic tasks.
 
 
 ## Results
