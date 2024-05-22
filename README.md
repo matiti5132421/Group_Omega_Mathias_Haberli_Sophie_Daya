@@ -387,13 +387,43 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 ```
 **Predictions and Evaluation**: The best Decision Tree model is used to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The results are stored in a dictionary for further analysis.
 
+#### Metrics and Results
 
+##### Decision Tree Model Evaluation (Class-wise)
 
+| Difficulty Level | Precision | Recall   | F1-Score |
+|------------------|-----------|----------|----------|
+| A1               | 0.376569  | 0.542169 | 0.444444 |
+| A2               | 0.244444  | 0.278481 | 0.260355 |
+| B1               | 0.275862  | 0.240964 | 0.257235 |
+| B2               | 0.280822  | 0.267974 | 0.274247 |
+| C1               | 0.216418  | 0.190789 | 0.202797 |
+| C2               | 0.327586  | 0.230303 | 0.270463 |
 
+#### Decision Tree Model Evaluation (Overall)
 
+| Model         | Precision | Recall   | F1-Score | Accuracy |
+|---------------|-----------|----------|----------|----------|
+| Decision Tree | 0.288374  | 0.29375  | 0.286486 | 0.29375  |
+
+##### Commentary
+
+The Decision Tree model demonstrates moderate performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, which indicates that it can reasonably identify simpler sentences. However, the performance decreases for higher difficulty levels such as A2, B1, B2, C1, and C2. The overall accuracy is 29.38%, indicating that while the Decision Tree model can classify some sentences correctly, it faces challenges particularly with higher difficulty levels. This suggests that the model may benefit from further tuning or the use of more complex algorithms to improve its performance.
 
 ### Random Forest
-Description of the model, methodology, and hyper-parameter optimization details.
+
+
+
+
+#### Code Explanation
+
+
+
+
+
+#### Metrics and Results
+
+
 
 ### CamemBERT
 Description of the model, methodology, and hyper-parameter optimization details.
