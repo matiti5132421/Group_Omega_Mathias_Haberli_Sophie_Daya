@@ -179,6 +179,51 @@ Finally, we convert the classification report into a DataFrame for easier viewin
 
 This code helps us train and evaluate the Logistic Regression model, ensuring we optimize its performance for predicting the difficulty of French sentences.
 
+#### Metrics and Results
+
+We can now print the results and metrics of the Logistic Regression model to see how it performs:
+
+##### Logistic Regression Model Evaluation (Class-wise)
+
+| Difficulty Level | Precision | Recall | F1-Score |
+|------------------|-----------|--------|----------|
+| A1               | 0.537313  | 0.650602 | 0.588556 |
+| A2               | 0.345029  | 0.373418 | 0.358663 |
+| B1               | 0.425373  | 0.343373 | 0.380000 |
+| B2               | 0.492063  | 0.405229 | 0.444444 |
+| C1               | 0.455782  | 0.440789 | 0.448161 |
+| C2               | 0.524862  | 0.575758 | 0.549133 |
+
+##### Logistic Regression Model Evaluation (Overall)
+
+| Metric             | Value     |
+|--------------------|-----------|
+| Precision          | 0.464049  |
+| Recall             | 0.466667  |
+| F1-Score           | 0.462684  |
+| Accuracy           | 0.466667  |
+
+##### Explanation of the Metrics
+
+- *Precision*: This measures how many of the predicted positive instances are actually positive. For example, a precision of 0.537313 for level A1 means that approximately 53.73% of the sentences predicted as A1 are truly A1.
+
+- *Recall*: This measures how many of the actual positive instances are correctly predicted. A recall of 0.650602 for level A1 indicates that the model correctly identifies 65.06% of the A1 sentences.
+
+- *F1-Score*: This is the harmonic mean of precision and recall, providing a single metric that balances both. For level A1, the F1-score is 0.588556.
+
+- *Accuracy*: This measures the proportion of correct predictions out of all predictions made. The overall accuracy of 0.466667 means that the model correctly predicts the difficulty level of approximately 46.67% of the sentences.
+
+##### Performance Analysis
+
+- *A1 Level*: The model performs reasonably well for the A1 level with the highest recall (0.650602) among all levels, meaning it is good at identifying A1 sentences. However, the precision is moderate, indicating some false positives.
+
+- *A2 Level*: The performance is lower with both precision (0.345029) and recall (0.373418) indicating the model struggles more with this level.
+
+- *B1 and B2 Levels*: The model's performance is balanced for these levels, with moderate precision and recall values. The F1-scores for B1 and B2 are 0.380000 and 0.444444, respectively, suggesting the model is less consistent in predicting these levels.
+
+- *C1 and C2 Levels*: The model shows better performance for C2 compared to C1, with higher precision (0.524862) and recall (0.575758). The F1-score of 0.549133 for C2 is the highest among the higher difficulty levels.
+
+Overall, the Logistic Regression model demonstrates varying performance across different difficulty levels, with the best results for A1 and C2 levels. These insights can help in understanding where the model excels and where improvements are needed.
 
 
 ### KNN
