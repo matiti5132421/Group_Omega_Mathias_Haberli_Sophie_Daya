@@ -55,7 +55,7 @@ These machine learning models follow a similar process. They are first trained o
 Without further ado, let's begin with an overview of the datasets we used!
 
 ## 2. Data
-### 2.1. Data Presentation
+### Data Presentation
 To train our models, we used various datasets. The most important was the `training_data.csv`, which you can find here: [training_data.csv](dataset/training_data.csv). This dataset consists of 4800 French texts organized as follows:
 
 | id  | sentence                                                                 | difficulty |
@@ -76,7 +76,7 @@ The `difficulty` column indicates the difficulty level of the sentences, ranging
 
 For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible. Concretly, in python code it looks like this:
 
-### 2.2. Data Preparation
+### Data Preparation
 
 Concretly, in python code it looks like this:
 
