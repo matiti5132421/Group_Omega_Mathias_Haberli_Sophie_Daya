@@ -412,16 +412,78 @@ The Decision Tree model demonstrates moderate performance across different diffi
 
 ### Random Forest
 
+The Random Forest model is an ensemble learning method that combines multiple decision trees to improve classification accuracy. In this section, we use Random Forest to predict the difficulty levels of French sentences. This model aggregates the predictions of several decision trees to make a final decision.
 
+#### How Does the Random Forest Model Work?
 
+1. *Ensemble of Trees*: Random Forest constructs multiple decision trees during training. Each tree is trained on a random subset of the training data and features.
+
+2. *Majority Vote*: The model makes predictions by aggregating the votes of all the individual trees. The class that receives the majority of votes is chosen as the final prediction.
+
+#### Strengths and Weaknesses
+
+- *Strengths*:
+  - *Accuracy*: Random Forest typically provides high accuracy by reducing overfitting.
+  - *Robustness*: It is less sensitive to noisy data and irrelevant features due to the ensemble approach.
+  - *Feature Importance*: The model can provide insights into feature importance, indicating which features are most influential in making predictions.
+
+- *Weaknesses*:
+  - *Complexity*: The model can be complex and require more computational resources compared to simpler models.
+  - *Interpretability*: With many trees, it can be challenging to interpret how the final decision is made.
+
+#### Practical Uses
+
+Random Forest is widely used in applications such as fraud detection, medical diagnosis, and stock market analysis. For example, in healthcare, it can predict disease outcomes based on patient data, and in finance, it can identify fraudulent transactions.
+
+By leveraging the strengths of Random Forest, we can achieve more reliable and accurate predictions for our text classification task.
 
 #### Code Explanation
 
+```python
+# Random Forest Model
+random_forest = RandomForestClassifier()
+```
+**Random Forest Initialization**: The `RandomForestClassifier` from the `sklearn` library is initialized. This classifier will be used to build the random forest model.
 
+```python
+# Hyperparameter tuning with reduced parameters
+param_grid = {
+    'n_estimators': [100, 150],
+    'max_depth': [None, 20],
+    'min_samples_split': [2, 5],
+    'min_samples_leaf': [1, 2]
+}
+```
+**Hyperparameter Tuning**: We use `GridSearchCV` to tune the hyperparameters of the Random Forest model. The `param_grid` dictionary specifies the range of values for the hyperparameters:
 
+- `n_estimators`: The number of trees in the forest.
+- `max_depth`: The maximum depth of the tree.
+- `min_samples_split`: The minimum number of samples required to split an internal node.
+- `min_samples_leaf`: The minimum number of samples required to be at a leaf node.
 
+```python
+grid_search = GridSearchCV(random_forest, param_grid, cv=3, scoring='accuracy')
+grid_search.fit(X_train_transformed, y_train)
+```
+**Grid Search**: `GridSearchCV` performs an exhaustive search over the specified hyperparameter grid with 3-fold cross-validation (`cv=3`). The `scoring='accuracy'` parameter ensures that the model is evaluated based on accuracy. The `grid_search.fit(X_train_transformed, y_train)` line fits the model to the transformed training data.
+
+```python
+# Best Random Forest model
+best_random_forest = grid_search.best_estimator_
+```
+**Best Model Selection**: The best combination of hyperparameters is selected, and the best model is stored in `best_random_forest`.
+
+```python
+# Predictions and evaluation
+y_pred = best_random_forest.predict(X_val_transformed)
+report = classification_report(y_val, y_pred, target_names=label_encoder.classes_, output_dict=True)
+```
+**Predictions and Evaluation**: The best Random Forest model is used to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The results are stored in a dictionary for further analysis.
 
 #### Metrics and Results
+
+
+
 
 
 
