@@ -71,7 +71,7 @@ These machine learning models follow a similar process. They are first trained o
 Without further ado, let's begin with an overview of the datasets we used!
 
 ## 2. Data
-### Data Presentation
+### 2.1. Data Presentation
 To train our models, we used various datasets. The most important was the `training_data.csv`, which you can find here: [training_data.csv](dataset/training_data.csv). This dataset consists of 4800 French texts organized as follows:
 
 | id  | sentence                                                                 | difficulty |
@@ -92,7 +92,7 @@ The `difficulty` column indicates the difficulty level of the sentences, ranging
 
 For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible. Concretly, in python code it looks like this:
 
-### Data Preparation
+### 2.2. Data Preparation
 
 Concretly, in python code it looks like this:
 
@@ -126,12 +126,9 @@ To feed our text data into a machine learning model, we need to convert it into 
 
 By following these steps, we prepare our text data for machine learning models, ensuring that it is in the right format and properly split into training and validation sets for effective model training and evaluation.
 
-## 3. Models and Methodology
+## 3. Logistic Regression Model
 
-In this chapter, we will apply our various models to the data we have prepared. For each model, we will explore how it works, provide Python code to implement and optimize the model, and conclude by examining key metrics to evaluate which model performs the best. We will delve into the methodology behind each model, detailing the steps and considerations involved in their training and evaluation.
-
-### Logistic Regression
-
+### 3.1. Definition of the Model
 Logistic Regression is a popular and straightforward model used to classify data into different categories. In this section, we use Logistic Regression to predict the difficulty levels of French sentences. This model helps us decide which difficulty level a sentence belongs to based on the data it has learned from.
 
 #### How Does the Logistic Regression Model Work?
@@ -157,7 +154,7 @@ Logistic Regression is widely used in various fields. For instance, in healthcar
 
 By understanding these aspects, we can better appreciate the strengths and limitations of Logistic Regression and decide if it is the right choice for our text classification task.
 
-#### Code Explanation
+### 3.2. Code Explanation
 
 Let's now take a closer look at how the Python code works for the Logistic Regression model, assuming that our data has already been prepared as we discussed earlier.
 ```python
@@ -195,11 +192,11 @@ Finally, we convert the classification report into a DataFrame for easier viewin
 
 This code helps us train and evaluate the Logistic Regression model, ensuring we optimize its performance for predicting the difficulty of French sentences.
 
-#### Metrics and Results
+### 3.3. Metrics and Results
 
 We can now print the results and metrics of the Logistic Regression model to see how it performs:
 
-##### Logistic Regression Model Evaluation (Class-wise)
+#### Logistic Regression Model Evaluation (Class-wise)
 
 | Difficulty Level | Precision | Recall | F1-Score |
 |------------------|-----------|--------|----------|
@@ -210,7 +207,7 @@ We can now print the results and metrics of the Logistic Regression model to see
 | C1               | 0.455782  | 0.440789 | 0.448161 |
 | C2               | 0.524862  | 0.575758 | 0.549133 |
 
-##### Logistic Regression Model Evaluation (Overall)
+#### Logistic Regression Model Evaluation (Overall)
 
 | Metric             | Value     |
 |--------------------|-----------|
@@ -219,7 +216,7 @@ We can now print the results and metrics of the Logistic Regression model to see
 | F1-Score           | 0.462684  |
 | Accuracy           | 0.466667  |
 
-##### Explanation of the Metrics
+#### Explanation of the Metrics
 
 - *Precision*: This measures how many of the predicted positive instances are actually positive. For example, a precision of 0.537313 for level A1 means that approximately 53.73% of the sentences predicted as A1 are truly A1.
 
@@ -229,7 +226,7 @@ We can now print the results and metrics of the Logistic Regression model to see
 
 - *Accuracy*: This measures the proportion of correct predictions out of all predictions made. The overall accuracy of 0.466667 means that the model correctly predicts the difficulty level of approximately 46.67% of the sentences.
 
-##### Performance Analysis
+#### Performance Analysis
 
 - *A1 Level*: The model performs reasonably well for the A1 level with the highest recall (0.650602) among all levels, meaning it is good at identifying A1 sentences. However, the precision is moderate, indicating some false positives.
 
@@ -241,11 +238,11 @@ We can now print the results and metrics of the Logistic Regression model to see
 
 Overall, the Logistic Regression model demonstrates varying performance across different difficulty levels, with the best results for A1 and C2 levels. These insights can help in understanding where the model excels and where improvements are needed.
 
-### K-Nearest Neighbors (KNN)
+## 4. K-Nearest Neighbors (KNN)
 
 The K-Nearest Neighbors (KNN) model is a simple, yet effective, method used for classification tasks. In this section, we utilize KNN to predict the difficulty levels of French sentences. This model classifies sentences based on their similarity to other sentences in the training data.
 
-#### How Does the K-Nearest Neighbors Model Work?
+### 4.1. Definition of the Model
 
 1. *Similarity Measure*: KNN calculates the similarity between sentences using a distance metric (e.g., Euclidean distance). It finds the 'k' closest sentences (neighbors) in the training data to the sentence being classified.
 
@@ -269,7 +266,7 @@ KNN is used in various applications such as pattern recognition, recommender sys
 
 By understanding the strengths and weaknesses of KNN, we can effectively apply this model to our text classification task and leverage its capabilities for accurate predictions.
 
-#### Code Explanation
+### 4.2. Code Explanation
 
 Let's walk through the Python code used to implement the K-Nearest Neighbors (KNN) model for predicting the difficulty levels of French sentences:
 
@@ -307,9 +304,9 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 ```
 Finally, we use the best KNN model to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The `target_names` parameter ensures that the report uses the original class labels (A1, A2, B1, B2, C1, C2), and `output_dict=True` returns the report as a dictionary for further analysis.
 
-#### Metrics and Results
+### 4.3. Metrics and Results
 
-##### KNN Model Evaluation (Class-wise)
+#### KNN Model Evaluation (Class-wise)
 
 | Difficulty Level | Precision | Recall | F1-Score |
 |------------------|-----------|--------|----------|
@@ -326,15 +323,15 @@ Finally, we use the best KNN model to make predictions on the validation data (`
 |-------|-----------|--------|----------|----------|
 | KNN   | 0.404224  | 0.358333 | 0.34642  | 0.358333 |
 
-##### Commentary
+#### Commentary
 
 The KNN model shows varying performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, indicating that it can accurately identify simpler sentences. However, the performance drops for higher difficulty levels like A2, B1, B2, C1, and C2. The overall accuracy is relatively low at 35.83%, suggesting that while the KNN model can classify some sentences correctly, it struggles with others, particularly those at higher difficulty levels.
 
-### Decision Tree
+## 5. Decision Tree
 
 The Decision Tree model is a popular method used for classification tasks. In this section, we use Decision Trees to predict the difficulty levels of French sentences. This model makes decisions based on a series of questions about the input features, leading to a final classification.
 
-#### How Does the Decision Tree Model Work?
+### 5.1. Definition of the Model
 
 1. *Tree Structure*: A Decision Tree consists of nodes and branches. Each node represents a feature or attribute, and each branch represents a decision rule. The leaves represent the final classification.
 
@@ -358,7 +355,7 @@ Decision Trees are widely used in various fields such as finance for credit scor
 
 Understanding the strengths and weaknesses of Decision Trees allows us to apply this model effectively to our text classification task and leverage its ability to make clear, interpretable decisions.
 
-#### Code Explanation
+### 5.2. Code Explanation
 
 ```python
 # Decision Tree Model
@@ -403,9 +400,9 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 ```
 **Predictions and Evaluation**: The best Decision Tree model is used to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The results are stored in a dictionary for further analysis.
 
-#### Metrics and Results
+### 5.3. Metrics and Results
 
-##### Decision Tree Model Evaluation (Class-wise)
+#### Decision Tree Model Evaluation (Class-wise)
 
 | Difficulty Level | Precision | Recall   | F1-Score |
 |------------------|-----------|----------|----------|
@@ -422,15 +419,15 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 |---------------|-----------|----------|----------|----------|
 | Decision Tree | 0.288374  | 0.29375  | 0.286486 | 0.29375  |
 
-##### Commentary
+#### Commentary
 
 The Decision Tree model demonstrates moderate performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, which indicates that it can reasonably identify simpler sentences. However, the performance decreases for higher difficulty levels such as A2, B1, B2, C1, and C2. The overall accuracy is 29.38%, indicating that while the Decision Tree model can classify some sentences correctly, it faces challenges particularly with higher difficulty levels. This suggests that the model may benefit from further tuning or the use of more complex algorithms to improve its performance.
 
-### Random Forest
+## 6. Random Forest
 
 The Random Forest model is an ensemble learning method that combines multiple decision trees to improve classification accuracy. In this section, we use Random Forest to predict the difficulty levels of French sentences. This model aggregates the predictions of several decision trees to make a final decision.
 
-#### How Does the Random Forest Model Work?
+### 6.1. Definition of the Model
 
 1. *Ensemble of Trees*: Random Forest constructs multiple decision trees during training. Each tree is trained on a random subset of the training data and features.
 
@@ -453,7 +450,7 @@ Random Forest is widely used in applications such as fraud detection, medical di
 
 By leveraging the strengths of Random Forest, we can achieve more reliable and accurate predictions for our text classification task.
 
-#### Code Explanation
+### 6.2. Code Explanation
 
 ```python
 # Random Forest Model
@@ -496,9 +493,9 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 ```
 **Predictions and Evaluation**: The best Random Forest model is used to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The results are stored in a dictionary for further analysis.
 
-#### Metrics and Results
+### 6.3. Metrics and Results
 
-##### Random Forest Model Evaluation (Class-wise)
+#### Random Forest Model Evaluation (Class-wise)
 
 | Difficulty Level | Precision | Recall   | F1-Score |
 |------------------|-----------|----------|----------|
@@ -509,21 +506,21 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 | C1               | 0.394558  | 0.381579 | 0.387960 |
 | C2               | 0.445161  | 0.418182 | 0.431250 |
 
-##### Random Forest Model Evaluation (Overall)
+#### Random Forest Model Evaluation (Overall)
 
 | Model         | Precision | Recall   | F1-Score | Accuracy |
 |---------------|-----------|----------|----------|----------|
 | Random Forest | 0.403008  | 0.415625 | 0.398534 | 0.415625 |
 
-##### Commentary
+#### Commentary
 
 The Random Forest model shows strong performance, particularly for the A1 difficulty level, with high precision and recall. However, its performance decreases for higher difficulty levels such as A2, B1, B2, C1, and C2, indicating some difficulty in distinguishing more complex sentences. The overall accuracy is 41.56%, suggesting that the Random Forest model can classify sentences with reasonable accuracy, but there is still room for improvement, especially for the more challenging levels.
 
-### CamemBERT
+## 7. CamemBERT Model
 
 CamemBERT is a transformer-based model specifically designed for the French language, building on the BERT (Bidirectional Encoder Representations from Transformers) architecture. It excels at understanding the context of words in sentences, making it a powerful tool for text classification tasks. In this section, we use CamemBERT to predict the difficulty levels of French sentences.
 
-#### How Does the CamemBERT Model Work?
+### 7.1. Definition of the Model
 
 1. *Pre-training*: CamemBERT is pre-trained on a large corpus of French text using a masked language modeling objective. During pre-training, the model learns to predict missing words in sentences, allowing it to understand context and capture nuanced language patterns.
 
@@ -548,7 +545,7 @@ CamemBERT is used in applications such as text classification, sentiment analysi
 
 By leveraging the strengths of CamemBERT, we can achieve highly accurate and context-aware predictions for our text classification task.
 
-#### Code Explanation
+### 7.2. Code Explanation
 
 The python code of the CamemBERT model is quite important, in consequences let's focus on most important parts. But you can find all the code on the section 6.1. of our Jupyter Notebook, here:  [Jupyter_Notebook.ipynb](Jupyter_Notebook.ipynb)
 
@@ -649,9 +646,9 @@ The `trainer.train()` method initiates the model training according to the set p
 
 This methodology ensures meticulous tracking and optimization of each phase from training through to evaluation for optimal outcomes.
 
-#### Metrics and Results
+### 7.3. Metrics and Results
 
-##### CamemBERT Model Evaluation (Class-wise)
+#### CamemBERT Model Evaluation (Class-wise)
 
 | Difficulty Level | Precision | Recall   | F1-Score |
 |------------------|-----------|----------|----------|
@@ -662,18 +659,19 @@ This methodology ensures meticulous tracking and optimization of each phase from
 | C1               | 0.487805  | 0.563380 | 0.522876 |
 | C2               | 0.791667  | 0.452381 | 0.575758 |
 
-##### CamemBERT Model Evaluation (Overall)
+#### CamemBERT Model Evaluation (Overall)
 
 | Model      | Precision | Recall   | F1-Score | Accuracy |
 |------------|-----------|----------|----------|----------|
 | CamemBERT  | 0.614331  | 0.585417 | 0.588794 | 0.585417 |
 
-##### Commentary
+#### Commentary
 
 The CamemBERT model demonstrates robust performance across various difficulty levels, particularly excelling in the precision and recall for the A1 level. This indicates that the model is highly effective in accurately identifying simpler sentences. While the model also shows good precision in the C2 level, its recall is lower, suggesting some challenges in consistently identifying the most complex sentences. Overall, the model achieves a solid accuracy of 58.54%, reflecting its capability to handle text classification with a nuanced understanding of French sentence complexity. This performance makes CamemBERT a strong candidate for tasks requiring detailed linguistic analysis, showing potential for further fine-tuning and application in more complex linguistic tasks.
 
 
-## Results
+## 8. Results Comparison
+
 ### Performance Metrics
 | Metric        | Logistic Regression | KNN  | Decision Tree | Random Forest | CamemBERT |
 |---------------|---------------------|------|---------------|---------------|-----------|
