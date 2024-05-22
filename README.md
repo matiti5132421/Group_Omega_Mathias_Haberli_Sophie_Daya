@@ -37,7 +37,7 @@ We are proud to present the first application from our startup, "LogoRank." We h
 7. [Conclusion](#conclusion)
 8. [References and Participation Report](#references)
 
-## Introduction
+## 1. Introduction
 To begin with, it is essential to understand that multiple approaches were available to develop our French text difficulty classification model. We experimented with five different machine learning models to achieve the best classification results. These models include:
 
 - Logistic Regression
@@ -51,6 +51,9 @@ Each model has its strengths, weaknesses, and specific use cases. Therefore, it 
 These machine learning models follow a similar process. They are first trained on labeled data, and their parameters are optimized to achieve the best results on a portion of the data reserved for testing the model. Finally, we can use the trained model on real, unlabeled data.
 
 Without further ado, let's begin with an overview of the datasets we used!
+
+## 2. Data Pesentation
+
 
 
 ## Models and Methodology
