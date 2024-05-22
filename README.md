@@ -8,11 +8,11 @@ This project aims to predict the difficulty level of French sentences using vari
 We are proud to present the first application from our startup, "LogoRank." We hope this README will not only convince you of our approach but also provide you with valuable insights into text classification. Join us on this exciting journey as we push the boundaries of natural language processing and machine learning!
 
 ## Deliverables
-- **GitHub Link:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
-- **Code Link:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
-- **Youtube Link:** [App Presentation Video](https://youtu.be/yourvideo)
-- **Kaggle Link:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
-- **Waitlist Link:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
+- **GitHub:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
+- **Code:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
+- **Youtube:** [App Presentation Video](https://youtu.be/yourvideo)
+- **Kaggle:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
+- **Waitlist:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -110,9 +110,10 @@ To feed our text data into a machine learning model, we need to convert it into 
 
 By following these steps, we prepare our text data for machine learning models, ensuring that it is in the right format and properly split into training and validation sets for effective model training and evaluation.
 
+## 3. Models and Methodology
 
+In this chapter, we will apply our various models to the data we have prepared. For each model, we will explore how it works, provide Python code to implement and optimize the model, and conclude by examining key metrics to evaluate which model performs the best. We will delve into the methodology behind each model, detailing the steps and considerations involved in their training and evaluation.
 
-## Models and Methodology
 ### Logistic Regression
 Description of the model, methodology, and hyper-parameter optimization details.
 
