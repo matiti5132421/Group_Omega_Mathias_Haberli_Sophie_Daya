@@ -293,10 +293,104 @@ Finally, we use the best KNN model to make predictions on the validation data (`
 
 #### Metrics and Results
 
+##### KNN Model Evaluation (Class-wise)
 
+| Difficulty Level | Precision | Recall | F1-Score |
+|------------------|-----------|--------|----------|
+| A1               | 0.335052  | 0.783133 | 0.469314 |
+| A2               | 0.234043  | 0.278481 | 0.254335 |
+| B1               | 0.270677  | 0.216867 | 0.240803 |
+| B2               | 0.494118  | 0.274510 | 0.352941 |
+| C1               | 0.506667  | 0.250000 | 0.334802 |
+| C2               | 0.593407  | 0.327273 | 0.421875 |
+
+#### KNN Model Evaluation (Overall)
+
+| Model | Precision | Recall | F1-Score | Accuracy |
+|-------|-----------|--------|----------|----------|
+| KNN   | 0.404224  | 0.358333 | 0.34642  | 0.358333 |
+
+##### Commentary
+
+The KNN model shows varying performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, indicating that it can accurately identify simpler sentences. However, the performance drops for higher difficulty levels like A2, B1, B2, C1, and C2. The overall accuracy is relatively low at 35.83%, suggesting that while the KNN model can classify some sentences correctly, it struggles with others, particularly those at higher difficulty levels.
 
 ### Decision Tree
-Description of the model, methodology, and hyper-parameter optimization details.
+
+The Decision Tree model is a popular method used for classification tasks. In this section, we use Decision Trees to predict the difficulty levels of French sentences. This model makes decisions based on a series of questions about the input features, leading to a final classification.
+
+#### How Does the Decision Tree Model Work?
+
+1. *Tree Structure*: A Decision Tree consists of nodes and branches. Each node represents a feature or attribute, and each branch represents a decision rule. The leaves represent the final classification.
+
+2. *Splitting*: The tree splits the data based on certain criteria (e.g., Gini impurity or information gain) to maximize the homogeneity of the resulting nodes. The process continues recursively until a stopping condition is met.
+
+#### Strengths and Weaknesses
+
+- *Strengths*:
+  - *Interpretability*: Decision Trees are easy to understand and visualize.
+  - *Non-linear Relationships*: They can capture non-linear relationships between features and target labels.
+  - *Handling Missing Data*: They can handle missing values and maintain performance.
+
+- *Weaknesses*:
+  - *Overfitting*: Decision Trees can easily overfit, especially with complex trees.
+  - *Instability*: Small changes in the data can lead to different tree structures.
+  - *Bias*: They can be biased to dominant classes if not properly tuned.
+
+#### Practical Uses
+
+Decision Trees are widely used in various fields such as finance for credit scoring, in healthcare for diagnosing diseases, and in marketing for customer segmentation. They are effective in scenarios where interpretability and understanding of the decision-making process are crucial.
+
+Understanding the strengths and weaknesses of Decision Trees allows us to apply this model effectively to our text classification task and leverage its ability to make clear, interpretable decisions.
+
+#### Code Explanation
+
+```python
+# Decision Tree Model
+decision_tree = DecisionTreeClassifier()
+```
+**Decision Tree Initialization**: The `DecisionTreeClassifier` from the `sklearn` library is initialized. This classifier will be used to build the decision tree model.
+
+```python
+# Hyperparameter tuning using RandomizedSearchCV
+param_dist = {
+    'max_depth': [None, 10, 20, 30, 40, 50, 60],
+    'min_samples_split': randint(2, 20),
+    'min_samples_leaf': randint(1, 20),
+    'criterion': ['gini', 'entropy'],
+    'splitter': ['best', 'random']
+}
+```
+**Hyperparameter Tuning**: We use `RandomizedSearchCV` to tune the hyperparameters of the Decision Tree model. The `param_dist` dictionary specifies the range of values for the hyperparameters:
+
+- `max_depth`: The maximum depth of the tree.
+- `min_samples_split`: The minimum number of samples required to split an internal node.
+- `min_samples_leaf`: The minimum number of samples required to be at a leaf node.
+- `criterion`: The function to measure the quality of a split ('gini' or 'entropy').
+- `splitter`: The strategy used to choose the split at each node ('best' or 'random').
+
+```python
+random_search = RandomizedSearchCV(decision_tree, param_distributions=param_dist, n_iter=100, cv=5, scoring='accuracy', random_state=42, n_jobs=-1)
+random_search.fit(X_train_transformed, y_train)
+```
+**Random Search**: `RandomizedSearchCV` performs a random search over the specified hyperparameter distributions with 100 iterations (`n_iter=100`) and 5-fold cross-validation (`cv=5`). The `scoring='accuracy'` parameter ensures that the model is evaluated based on accuracy. The `random_search.fit(X_train_transformed, y_train)` line fits the model to the transformed training data.
+
+```python
+# Best Decision Tree model
+best_decision_tree = random_search.best_estimator_
+```
+**Best Model Selection**: The best combination of hyperparameters is selected, and the best model is stored in `best_decision_tree`.
+
+```python
+# Predictions and evaluation
+y_pred = best_decision_tree.predict(X_val_transformed)
+report = classification_report(y_val, y_pred, target_names=label_encoder.classes_, output_dict=True)
+```
+**Predictions and Evaluation**: The best Decision Tree model is used to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The results are stored in a dictionary for further analysis.
+
+
+
+
+
 
 ### Random Forest
 Description of the model, methodology, and hyper-parameter optimization details.
