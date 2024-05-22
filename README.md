@@ -141,7 +141,7 @@ Logistic Regression is widely used in various fields. For instance, in healthcar
 
 By understanding these aspects, we can better appreciate the strengths and limitations of Logistic Regression and decide if it is the right choice for our text classification task.
 
-#### Implementation code
+#### Code Explanation
 
 Let's now take a closer look at how the Python code works for the Logistic Regression model, assuming that our data has already been prepared as we discussed earlier.
 ```python
@@ -225,9 +225,75 @@ We can now print the results and metrics of the Logistic Regression model to see
 
 Overall, the Logistic Regression model demonstrates varying performance across different difficulty levels, with the best results for A1 and C2 levels. These insights can help in understanding where the model excels and where improvements are needed.
 
+### K-Nearest Neighbors (KNN)
 
-### KNN
-Description of the model, methodology, and hyper-parameter optimization details.
+The K-Nearest Neighbors (KNN) model is a simple, yet effective, method used for classification tasks. In this section, we utilize KNN to predict the difficulty levels of French sentences. This model classifies sentences based on their similarity to other sentences in the training data.
+
+#### How Does the K-Nearest Neighbors Model Work?
+
+1. *Similarity Measure*: KNN calculates the similarity between sentences using a distance metric (e.g., Euclidean distance). It finds the 'k' closest sentences (neighbors) in the training data to the sentence being classified.
+
+2. *Majority Vote*: The model assigns the sentence to the difficulty level most common among its 'k' nearest neighbors. For example, if most of the closest neighbors belong to level A1, the sentence is classified as A1.
+
+#### Strengths and Weaknesses
+
+- *Strengths*:
+  - *Simplicity*: KNN is easy to understand and implement.
+  - *Non-parametric*: It makes no assumptions about the underlying data distribution.
+  - *Flexibility*: It can be used for both classification and regression tasks.
+
+- *Weaknesses*:
+  - *Computational Cost*: KNN can be slow, especially with large datasets, as it computes distances for all instances.
+  - *Sensitivity to Noise*: It is sensitive to noisy data and irrelevant features.
+  - *Choosing 'k'*: The performance heavily depends on the choice of 'k', the number of neighbors.
+
+#### Practical Uses
+
+KNN is used in various applications such as pattern recognition, recommender systems, and anomaly detection. For instance, in image recognition, KNN can classify images based on their similarity to labeled images in the dataset.
+
+By understanding the strengths and weaknesses of KNN, we can effectively apply this model to our text classification task and leverage its capabilities for accurate predictions.
+
+#### Code Explanation
+
+Let's walk through the Python code used to implement the K-Nearest Neighbors (KNN) model for predicting the difficulty levels of French sentences:
+
+```python
+# KNN Model
+knn = KNeighborsClassifier()
+```
+This line initializes the KNN model using the `KNeighborsClassifier` from the `sklearn` library. The KNN model will be used to classify sentences based on their similarity to other sentences in the training data.
+
+```python
+# Hyperparameter tuning
+param_grid = {'n_neighbors': [3, 5, 7, 9], 'weights': ['uniform', 'distance']}
+grid_search = GridSearchCV(knn, param_grid, cv=5, scoring='accuracy')
+```
+Here, we define a grid of hyperparameters to tune the KNN model:
+- `n_neighbors`: The number of nearest neighbors to consider for classification.
+- `weights`: The weight function used in prediction. 'uniform' means all neighbors are weighted equally, while 'distance' means closer neighbors have more influence.
+`GridSearchCV` is used to perform an exhaustive search over the specified hyperparameter grid with 5-fold cross-validation. The `scoring='accuracy'` parameter ensures that the model is evaluated based on accuracy.
+
+```python
+grid_search.fit(X_train_transformed, y_train)
+```
+This line fits the grid search to the transformed training data (`X_train_transformed` and `y_train`). The grid search will try all combinations of hyperparameters and select the best one based on cross-validated accuracy.
+
+```python
+# Best KNN model
+best_knn = grid_search.best_estimator_
+```
+After the grid search is complete, `best_knn` will hold the KNN model with the best combination of hyperparameters found during the search.
+
+```python
+# Predictions and evaluation
+y_pred = best_knn.predict(X_val_transformed)
+report = classification_report(y_val, y_pred, target_names=label_encoder.classes_, output_dict=True)
+```
+Finally, we use the best KNN model to make predictions on the validation data (`X_val_transformed`). The `classification_report` function generates a detailed report of the model's performance, including precision, recall, and F1-score for each difficulty level. The `target_names` parameter ensures that the report uses the original class labels (A1, A2, B1, B2, C1, C2), and `output_dict=True` returns the report as a dictionary for further analysis.
+
+#### Metrics and Results
+
+
 
 ### Decision Tree
 Description of the model, methodology, and hyper-parameter optimization details.
