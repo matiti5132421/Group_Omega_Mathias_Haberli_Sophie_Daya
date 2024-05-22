@@ -52,9 +52,9 @@ These machine learning models follow a similar process. They are first trained o
 
 Without further ado, let's begin with an overview of the datasets we used!
 
-## 2. Data Pesentation
-
-To train our models, we used various datasets. The most important was the `training_data.csv`, which you can find here: [dataset/training_data.csv]. This dataset consists of 4800 French texts organized as follows:
+## 2. Data
+### 2.1. Data Presentation
+To train our models, we used various datasets. The most important was the `training_data.csv`, which you can find here: [training_data.csv](dataset/training_data.csv). This dataset consists of 4800 French texts organized as follows:
 
 | id  | sentence                                                                 | difficulty |
 | --- | ------------------------------------------------------------------------ | ---------- |
@@ -72,18 +72,41 @@ To train our models, we used various datasets. The most important was the `train
 
 The `difficulty` column indicates the difficulty level of the sentences, ranging from A1 to C2, with A1 being the simplest and C2 being the most complex.
 
-### 2.1. Data Preparation
+For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible. Concretly, in python code it looks like this:
 
-For each model, we divided the data into two parts: the training sample to train our models, and the validation sample to test the models and adjust parameters if necessary. We typically used an 80/20 split, with 80% of the data for training and 20% for validation. Other splits are also possible.
+### 2.2. Data Processing
 
+Concretly, in python code it looks like this:
 
+```python
+# Separate features and labels
+X = training_data_pd['sentence']  # Features (text data)
+y = training_data_pd['difficulty']  # Labels (difficulty level)
+```
+In this step, we first separate our dataset into features and labels. The features (X) are the sentences we want to classify, and the labels (y) are the difficulty levels assigned to each sentence.
 
+```python
+# Encode labels
+label_encoder = LabelEncoder()
+y_encoded = label_encoder.fit_transform(y)
+```
+Since machine learning models work better with numeric data, we need to convert the text labels (difficulty levels) into numerical values. The LabelEncoder is used to transform the difficulty levels into numeric form, making them suitable for training our model.
 
+```python
+# Split the data into training and validation sets
+X_train, X_val, y_train, y_val = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+```
+Here, we split our dataset into two parts: training and validation sets. The training set (X_train, y_train) is used to train the model, while the validation set (X_val, y_val) is used to evaluate its performance. We use 80% of the data for training and 20% for validation. The random_state parameter ensures that we get the same split every time we run the code.
 
+```python
+# Text Vectorization
+vectorizer = TfidfVectorizer()
+X_train_transformed = vectorizer.fit_transform(X_train)
+X_val_transformed = vectorizer.transform(X_val)
+```
+To feed our text data into a machine learning model, we need to convert it into a numerical format. The TfidfVectorizer transforms the sentences into a matrix of numerical values, where each value represents the importance of a word in a sentence relative to the entire dataset. We first fit the vectorizer on the training data (fit_transform), and then apply the same transformation to the validation data (transform).
 
-
-
-
+By following these steps, we prepare our text data for machine learning models, ensuring that it is in the right format and properly split into training and validation sets for effective model training and evaluation.
 
 
 
