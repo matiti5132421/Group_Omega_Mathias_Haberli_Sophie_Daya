@@ -115,7 +115,71 @@ By following these steps, we prepare our text data for machine learning models, 
 In this chapter, we will apply our various models to the data we have prepared. For each model, we will explore how it works, provide Python code to implement and optimize the model, and conclude by examining key metrics to evaluate which model performs the best. We will delve into the methodology behind each model, detailing the steps and considerations involved in their training and evaluation.
 
 ### Logistic Regression
-Description of the model, methodology, and hyper-parameter optimization details.
+
+Logistic Regression is a popular and straightforward model used to classify data into different categories. In this section, we use Logistic Regression to predict the difficulty levels of French sentences. This model helps us decide which difficulty level a sentence belongs to based on the data it has learned from.
+
+#### How Does the Logistic Regression Model Work?
+
+1. *Probability Estimation*: Logistic Regression calculates the likelihood that a given sentence belongs to a specific difficulty level. It does this by using a special function called the sigmoid function, which converts the input values into a probability between 0 and 1.
+
+2. *Classification*: Based on these probabilities, the model assigns the sentence to a difficulty level. For example, if the probability of a sentence being a particular level is higher than 50%, it is classified as that level.
+
+#### Strengths and Weaknesses
+
+- *Strengths*:
+  - *Simplicity*: Logistic Regression is easy to understand and implement.
+  - *Efficiency*: It works well with large datasets and is computationally efficient.
+  - *Interpretability*: The results are easy to interpret, making it clear how the model is making decisions.
+
+- *Weaknesses*:
+  - *Linearity*: It assumes a linear relationship between the features and the outcome, which may not always be the case.
+  - *Limited Complexity*: It might not perform well with very complex data patterns or when the data has many interactions.
+
+#### Practical Uses
+
+Logistic Regression is widely used in various fields. For instance, in healthcare, it can predict whether a patient has a certain disease based on their medical history and test results. In marketing, it can classify whether a customer will buy a product based on their past behavior.
+
+By understanding these aspects, we can better appreciate the strengths and limitations of Logistic Regression and decide if it is the right choice for our text classification task.
+
+#### Implementation code
+
+Let's now take a closer look at how the Python code works for the Logistic Regression model, assuming that our data has already been prepared as we discussed earlier.
+```python
+# Logistic Regression Model
+logistic_model = LogisticRegression(max_iter=1000)
+```
+We start by creating an instance of the Logistic Regression model with a maximum of 1000 iterations. This helps ensure the model has enough opportunities to converge to a solution.
+```python
+# Hyperparameter tuning
+param_grid = {'C': [0.1, 1, 10], 'solver': ['liblinear', 'lbfgs']}  # Adjust based on Logistic Regression needs
+grid_search = GridSearchCV(logistic_model, param_grid, cv=5, scoring='accuracy')
+grid_search.fit(X_train_transformed, y_train)
+```
+Hyperparameters are settings that can be adjusted to improve the performance of the model. Here, we use GridSearchCV to try different values of the `C` parameter (which controls the regularization strength) and the `solver` (which determines the algorithm to use for optimization). GridSearchCV runs the model multiple times (with 5-fold cross-validation) to find the best combination of these hyperparameters.
+
+```python
+# Best Logistic Regression model
+best_logistic = grid_search.best_estimator_
+```
+After testing different hyperparameter combinations, GridSearchCV selects the best-performing model based on accuracy.
+
+```python
+# Predictions and evaluation
+y_pred = best_logistic.predict(X_val_transformed)
+report = classification_report(y_val, y_pred, target_names=label_encoder.classes_, output_dict=True)
+```
+The selected model is then used to make predictions on the validation data. We generate a classification report that includes metrics such as precision, recall, and F1-score for each difficulty level.
+
+```python
+# Predictions and evaluation
+y_pred = best_logistic.predict(X_val_transformed)
+report = classification_report(y_val, y_pred, target_names=label_encoder.classes_, output_dict=True)
+```
+Finally, we convert the classification report into a DataFrame for easier viewing and further analysis.
+
+This code helps us train and evaluate the Logistic Regression model, ensuring we optimize its performance for predicting the difficulty of French sentences.
+
+
 
 ### KNN
 Description of the model, methodology, and hyper-parameter optimization details.
