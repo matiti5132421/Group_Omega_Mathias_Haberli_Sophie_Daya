@@ -575,6 +575,65 @@ training_args = TrainingArguments(
     greater_is_better=True
 )
 ```
+**Training Arguments**: These arguments define the training configuration for the model. Here are the key parameters and their roles:
+
+- `output_dir='./results'`: Specifies the directory where the model checkpoints and logs will be saved. This helps in organizing and storing the model's progress and outputs during training.
+- `num_train_epochs=6`: Sets the number of training epochs to 6. An epoch is one complete pass through the entire training dataset. This means the model will train on the entire dataset 6 times to learn the patterns in the data.
+- `per_device_train_batch_size=21`: Defines the batch size for training, which is the number of samples processed before the model's internal parameters are updated. A batch size of 21 means that the model will process 21 sentences at a time.
+- `warmup_steps=500`: Specifies the number of steps to gradually increase the learning rate from 0 to its set value. This warm-up period helps in stabilizing the training process, especially at the beginning.
+- `weight_decay=0.01`: Applies weight decay (regularization) to the optimizer to prevent overfitting by adding a penalty for large weights, encouraging the model to learn simpler patterns that generalize better.
+- `logging_dir='./logs'`: Specifies the directory where the training logs, such as loss and accuracy per step, will be stored. This helps in monitoring the training process.
+- `logging_steps=50`: Logs training metrics (e.g., loss, accuracy) every 50 steps. This frequency of logging helps in tracking the model's performance and training progress without too much overhead.
+- `learning_rate=15e-5`: Sets the learning rate for the optimizer, which controls how much to change the model's parameters at each step. A learning rate of 15e-5 (or 0.00015) is a relatively small value to ensure gradual and stable training.
+- `fp16=False`: Disables mixed precision training (16-bit floating-point), which can be used to speed up training on compatible hardware. Here, we use standard 32-bit precision.
+- `evaluation_strategy="epoch"`: Evaluates the model's performance on the validation set at the end of each epoch. This helps in assessing how well the model is learning and adjusting hyperparameters if necessary.
+- `save_strategy="epoch"`: Saves a checkpoint of the model at the end of each epoch. This allows for recovering the best version of the model in case of interruptions and for future fine-tuning.
+- `load_best_model_at_end=True`: Ensures that the best model, based on evaluation metrics, is loaded at the end of training. This helps in deploying the most accurate model.
+- `metric_for_best_model='accuracy'`: Uses accuracy as the key metric to evaluate and compare model performance. The model with the highest accuracy on the validation set will be considered the best.
+- `greater_is_better=True`: Indicates that higher values of the specified metric (accuracy) are better, guiding the training process to maximize this metric.
+
+These parameters are crucial for optimizing the model's performance. In our project, we determined these settings through a systematic hyperparameter optimization process, iteratively testing different combinations to identify the most effective configuration.
+
+```python
+# Initialize the Trainer with added compute_metrics for dynamic metric calculation
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=val_dataset,
+    compute_metrics=compute_metrics,
+    callbacks=[EarlyStoppingCallback(early_stopping_patience=3)]
+
+# Train the model
+trainer.train()
+
+# Evaluate the model
+predictions, labels, _ = trainer.predict(val_dataset)
+predictions = np.argmax(predictions, axis=-1)
+
+# Generate classification report
+report = classification_report(labels, predictions, target_names=['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], output_dict=True)
+```
+**Trainer Initialization**: 
+We configure the `Trainer` with several components:
+- **model**: Specifies the CamemBERT model pre-loaded for training.
+- **args**: Contains the training arguments such as batch size, learning rate, previously defined.
+- **train_dataset and eval_dataset**: Datasets designated for training and evaluation phases.
+- **compute_metrics**: A function to compute evaluation metrics, aiding in performance monitoring.
+- **callbacks**: Includes `EarlyStoppingCallback` with a patience of 3 epochs to prevent overfitting by stopping training if there is no improvement.
+
+**Model Training**: 
+The `trainer.train()` method initiates the model training according to the set parameters and datasets.
+
+**Model Evaluation**:
+- Post-training, `trainer.predict(val_dataset)` is employed to make predictions on the validation set.
+- `np.argmax(predictions, axis=-1)`: Converts model logits to class indices, identifying the class with the highest probability.
+
+**Classification Report**:
+- `classification_report` provides a detailed performance analysis, showing precision, recall, and F1-score for each difficulty level (A1, A2, B1, B2, C1, C2).
+- Setting `output_dict=True` formats the report as a dictionary for ease of use in applications and further analyses.
+
+This methodology ensures meticulous tracking and optimization of each phase from training through to evaluation for optimal outcomes.
 
 
 
