@@ -944,7 +944,9 @@ Lastly, the POS tag analysis didn't bring much to the table since the error dist
 
 LogoRank is designed to enhance language learning by classifying French YouTube videos by interest and difficulty level (A1 to C2). This enables learners to find content that matches their skill level, guaranteeing an optimal learning experience.
 
-<img width="650" alt="Capture d’écran 2024-05-23 à 11 46 44" src="https://github.com/sophdaya/Omega_SophieDAYA_MathiasHABERLI/assets/168346446/e6fd6e77-38e1-4d68-b21f-048f55d3ab21">
+<p align="center">
+  <img width="650" alt="Capture d’écran 2024-05-23 à 11 46 44" src="https://github.com/sophdaya/Omega_SophieDAYA_MathiasHABERLI/assets/168346446/e6fd6e77-38e1-4d68-b21f-048f55d3ab21">
+</p>
 
 Users start by entering specific keywords related to their interests. For example, if a user is interested in crochet, they can enter the keyword "crochet". This allows the app to focus on retrieving videos that are relevant to the user's interests. Then, users can select their proficiency level, ranging from A1 (beginner) to C2 (advanced). This is crucial because it allows LogoRank to filter and present videos that are appropriate for the user’s current language skills. This step ensures that the content is neither too challenging nor too simple, providing an optimal learning experience.
 
@@ -999,9 +1001,17 @@ The code is structured in two main parts:
    st.title('French YouTube Video Search and Classification')
    keyword_input = st.text_input('Enter a keyword:')
    ```
+#### Streamlit Initialization
+We use Streamlit to create user interfaces, where users can input data and see the results interactively.
 
+#### Model Loading and Prediction
+The CamemBERT model is loaded, and we perform feature extraction and prediction directly within the app, allowing real-time language processing.
 
+#### YouTube Data Fetching
+We integrate YouTube's API to fetch and display video content based on the user's input, enhancing the interactivity and utility of the app.
 
+#### Running the App
+Once you have the necessary files on your local machine, you can launch them from your terminal, which will open the application directly in your browser. We plan to deploy it online soon! So don't wait, try it out and explore its features!
 
 ### 10.3. Demonstration in a Video
 
