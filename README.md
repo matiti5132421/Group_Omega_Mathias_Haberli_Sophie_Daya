@@ -9,6 +9,30 @@ We are proud to present the first application from our startup, "LogoRank." We h
 
 PS: Part ... to ..., you can directly go to ...
 
+Directories and Files
+App
+
+App_Code_Streamlit.py
+dataset
+
+sample_submission.csv
+training_data.csv
+unlabelled_test_data.csv
+images
+
+Confusion_Matrix_Camembert.png
+Confusion_Matrix_Decision_Tree.png
+Confusion_Matrix_Erroneous_Predictions.png
+Confusion_Matrix_KNN.png
+Confusion_Matrix_Logistic.png
+Confusion_Matrix_Random_Forest.png
+Distribution_Error_Types.png
+Distribution_Lengths.png
+Types_Errors.png
+Types_Words_Errors.png
+models
+
+camembert_model.py
 ## Deliverables
 - **GitHub:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
 - **Code:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
