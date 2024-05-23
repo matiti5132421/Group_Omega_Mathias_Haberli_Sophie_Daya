@@ -954,6 +954,51 @@ After analyzing the videos, LogoRank presents a list of videos that match the se
 
 ### 10.2. Code of the App
 
+How did we develop our app, you ask? Currently, it's a prototype. We chose to use Streamlit, a powerful and flexible tool that allows us to build interactive and beautiful web apps quickly entirely in Python.
+
+#### Key Components of Our App's Code
+
+The code is structured in two main parts:
+
+1. **CamemBERT Model Saving**: We have trained the CamemBERT model on a training dataset with optimal parameters achieving about 60% accuracy. We're committed to improving this accuracy soon. Since this model is quite large, you can download it from the following link if you wish to test our application locally on your machine: [Download CamemBERT Model](https://drive.google.com/file/d/1I768jFU9ZFWEYv7Vz4naCnHYlUJG4bso/view). This file is a `.pth` file, meaning it's a PyTorch model file, which tends to be large due to the complexity and the size of the model.
+
+2. **App Code**: Below is a simplified snippet of our application's code:
+   ```python
+   import streamlit as st
+   import numpy as np
+   import pandas as pd
+   from transformers import CamembertTokenizer, CamembertForSequenceClassification
+   import torch
+   from googleapiclient.discovery import build
+   from youtube_transcript_api import YouTubeTranscriptApi
+   import tqdm
+
+   # Setting up the device for model execution
+   device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+   # Loading the pre-trained CamemBERT model
+   model_path = 'path_to_model/camembert_model.pth'
+   model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)
+   model.load_state_dict(torch.load(model_path, map_location=device))
+   model.to(device)
+   model.eval()
+
+   # YouTube API initialization for fetching video data
+   API_KEY = 'your_youtube_api_key'
+   youtube = build('youtube', 'v3', developerKey=API_KEY)
+
+   def extract_features(texts):
+       # Code to extract features from text using the CamemBERT model
+       pass
+
+   def fetch_video_details(video_id):
+       # Code to fetch details from YouTube
+       pass
+
+   # Streamlit UI setup
+   st.title('French YouTube Video Search and Classification')
+   keyword_input = st.text_input('Enter a keyword:')
+   ```
 
 
 
