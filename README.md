@@ -1,7 +1,7 @@
 # Predicting the Difficulty of French Text Using AI
 
 **Group OMEGA: Mathias Häberli, Sophie Daya**
-
+test
 ## Project Description
 This project aims to predict the difficulty level of French sentences using various machine learning models, including Logistic Regression, KNN, Decision Tree, Random Forest, and CamemBERT. Throughout this README and the accompanying GitHub repository, we will explore which model is the most capable of classifying French texts according to their difficulty level. Additionally, after demonstrating and training the best model, we will apply it in a real-world scenario: an application.
 
