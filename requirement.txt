@@ -1,0 +1,12 @@
+import streamlit as st
+import numpy as np
+import pandas as pd
+from transformers import CamembertTokenizer, CamembertForSequenceClassification
+import torch
+from googleapiclient.discovery import build
+from youtube_transcript_api import YouTubeTranscriptApi
+import tqdm
+from transformers import CamembertTokenizer, CamembertForSequenceClassification, Trainer, TrainingArguments, EarlyStoppingCallback
+from sklearn.model_selection import train_test_split
+from datasets import Dataset, load_metric
+import numpy as np
