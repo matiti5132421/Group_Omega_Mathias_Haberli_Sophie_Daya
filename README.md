@@ -672,16 +672,57 @@ The CamemBERT model demonstrates robust performance across various difficulty le
 
 ## 8. Results
 
-In this section, we will finally compare all the models we have explored by analyzing their performance metrics. We will then determine the best model that we have ultimately used for our application, as well as for achieving our best results on Kaggle!"
+In this section, we will finally compare all the models we have explored by analyzing their performance metrics. We will then determine the best model that we have ultimately used for our application, as well as for achieving our best results on Kaggle!
 
 ### 8.1. Comparison Table
 
+| Metric        | Logistic Regression | KNN     | Decision Tree | Random Forest | CamemBERT |
+|---------------|---------------------|---------|---------------|---------------|-----------|
+| Precision     | 0.464049            | 0.404224| 0.288374      | 0.403008      | 0.614331  |
+| Recall        | 0.466667            | 0.358333| 0.29375       | 0.415625      | 0.585417  |
+| F1-score      | 0.462684            | 0.34642 | 0.286486      | 0.398534      | 0.588794  |
+| Accuracy      | 0.466667            | 0.358333| 0.29375       | 0.415625      | 0.585417  |
 
 
+#### Identifying the Best Model: CamemBERT
+- **Precision:** 0.614331
+- **Recall:** 0.585417
+- **F1-Score:** 0.588794
+- **Accuracy:** 0.585417
 
+The **CamemBERT** model steals the show with the highest scores across all metrics. What makes CamemBERT the star? It's all about understanding context. This model is built on the BERT architecture, which is designed to grasp the full context of a sentence by looking at words in relation to all the other words in a sentence, rather than one-at-a-time in order. Its excellence in precision indicates that when it predicts a sentence as being of a certain difficulty level, it's usually spot on. The high recall and accuracy further assure us that CamemBERT is reliable in identifying a wide range of sentence difficulties effectively.
+
+#### The Underperformer: Decision Tree
+- **Precision:** 0.288374
+- **Recall:** 0.29375
+- **F1-Score:** 0.286486
+- **Accuracy:** 0.29375
+
+On the flip side, the **Decision Tree** model lags significantly behind. Why does it falter? Decision Trees are generally simpler models that split data into branches based on certain decision nodes. This method can be quite effective for clear-cut, less complex data. However, when faced with the intricacies and subtleties of natural language processing, such as varying sentence structures and linguistic nuances, Decision Trees struggle. They tend to overfit on the training data, failing to generalize well on unseen data, which likely led to their lower performance metrics.
+
+#### Summing Up
+From our analysis, it's evident that the sophisticated **CamemBERT** is more equipped to tackle the complexities of language, providing robust and accurate classifications that are critical for our application's success. Meanwhile, simpler models like the Decision Tree might need more than just a few tweaks to compete in high-stakes environments such as Kaggle competitions.
+
+By focusing on the right model, we harness the power of advanced AI to bridge human language and machine understanding, bringing top-tier natural language processing capabilities into practical applications.
 
 ### 8.2. Comparison of Confusion Matrix
 
+### Analyzing Model Performance Through Confusion Matrices
+
+Analyzing the confusion matrices for the CamemBERT and Decision Tree models provides a clear illustration of their performance disparities, particularly in handling the complexity of natural language.
+
+<div align="center">
+  <img src="images/Confusion_Matrix_Camembert.png" width="320" />
+  <img src="images/Confusion_Matrix_Decision_Tree.png" width="320" />
+</div>
+
+
+
+#### CamemBERT's Performance:
+The confusion matrix for CamemBERT shows a well-distributed pattern of correct predictions across all classes. This model excels in accurately classifying sentences from easier levels (like A1) to more challenging levels (like C2). The relatively balanced off-diagonal elements suggest that while there are some misclassifications, they are mostly close misses within adjacent difficulty levels. This indicates a nuanced understanding of the French language and its various complexities, a strength inherent to the transformer-based architecture of CamemBERT, which leverages deep contextual embeddings.
+
+#### Decision Tree's Struggles:
+In contrast, the Decision Tree's confusion matrix displays more pronounced misclassifications across the board. The model shows a tendency to misclassify across a wider range of difficulty levels, with significant errors particularly in predicting more complex sentences (B2, C1, C2). These larger numbers of misclassifications away from the diagonal indicate a fundamental misunderstanding of sentence complexities and nuances. Decision Trees make decisions based on simpler, rule-based splits that do not capture the high-level features necessary for understanding language in depth. This leads to overfitting on training data, where the model learns specifics rather than generalizable patterns, resulting in poor performance on unseen data.
 
 
 ### 8.3. The Best Model CamemBERT
