@@ -763,18 +763,39 @@ We were Group OMEGA!
 
 ## 9. CamemBERT Error Analysis
 
-
+In this section, we turn our spotlight on our best model, CamemBERT. We will delve into an analysis of the errors made by the model on the testing data. By examining where and why errors occur, we aim to gain a deeper understanding of its behavior. This insight is crucial as it might lead to potential improvements, enhancing the model's performance further.
 
 ### 9.1. Confusion Matrix of Erroneous Predictions
 
 <div align="center">
-  <img src="images/Confusion_Matrix_Erroneous_Prediction.png" width="500" />
+  <img src="images/Confusion_Matrix_Erroneous_Predictions.png" width="400" />
 </div>
+
+In this detailed exploration of the CamemBERT model's erroneous predictions, we aim to understand where the model diverges from accuracy. The confusion matrix provided visualizes only the incorrect classifications, giving us a clearer view of the specific challenges faced by the model across different difficulty levels.
+
+**Key Observations:**
+- **Intermediate Confusion:** The model shows a notable struggle with classifying B2 level texts, often confusing them with B1 and C1 levels. This suggests difficulty in distinguishing nuances between closely related difficulty levels, particularly where the linguistic features are subtle yet significant.
+
+- **A1 Misinterpretation:** A significant error occurs with the simplest A1 texts, where 20 instances are incorrectly classified as A2. This misclassification indicates that CamemBERT may be overestimating the complexity of basic texts, possibly due to an oversensitivity to certain linguistic features that are not truly indicative of higher difficulty.
+
+- **C2 Overlaps:** The model also mislabels many of the most complex C2 texts as C1, with 14 occurrences. This points to a conservative approach in recognizing the most challenging content, suggesting a potential undertraining or lack of robust features that clearly signal the highest complexity.
+
+**Areas for Improvement:**
+- **Enhancing Subtlety Recognition:** To reduce confusion between adjacent difficulty levels, especially in the middle spectrum (B1, B2, C1), it may be beneficial to refine the model’s training on distinguishing features that are pivotal at these levels.
+  
+- **Calibrating Sensitivity:** Adjusting the model’s sensitivity to prevent the overestimation of text difficulty, particularly at the lower end (A1), could improve its precision. This involves better feature selection during the training phase to focus on truly relevant attributes.
+
+- **Expanding Training Data:** Incorporating a broader range of examples from the underrepresented extreme difficulty levels (A1 and C2) could help CamemBERT learn a more balanced representation of the language complexities involved.
+
+**Concluding Thoughts:**
+While the CamemBERT model showcases strong overall performance, these insights from its error matrix are invaluable for targeted improvements. By addressing these identified weaknesses, we can further enhance the model's accuracy and adaptability in real-world applications, ensuring it not only learns from its mistakes but also evolves from them.
 
 
 ### 9.2. Distribution of Error Type
 
-### Analyzing CamemBERT's Error Types: Underestimation vs. Overestimation
+<div align="center">
+  <img src="images//Distribution_Error_Types.png" width="400" />
+</div>
 
 The bar chart clearly shows that the CamemBERT model is more prone to underestimating the difficulty of texts compared to overestimating them. This insight is crucial as it highlights a fundamental aspect of the model's performance and gives us a clue on what might be adjusted in the training process.
 
@@ -794,19 +815,41 @@ The bar chart clearly shows that the CamemBERT model is more prone to underestim
 
 This focused analysis of error types not only helps in understanding CamemBERT's current limitations but also directs us towards specific improvements that can enhance its predictive accuracy and reliability. By addressing these points, we can better align the model's performance with the true complexity of language tasks it faces.
 
-Stay tuned as we continue to refine our approach, ensuring our model becomes even more adept at navigating the nuances of text difficulty.
-
 
 ### 9.3. Distribution of Sentence Lenghts
 
+<div align="center">
+  <img src="images/Distribution_Lenghts.png" width="800" />
+</div>
+
+We delve into understanding where our model tends to slip by comparing the sentence lengths in erroneous predictions against the general sentence length distribution in the training data. This comparison helps us gauge whether sentence length plays a significant role in the model's mistakes.
+
+**Observations from the Distributions:**
+- **Distribution of Sentence Lengths in Erroneous Predictions:** The histogram on the left shows a bell-shaped distribution with a peak around 50-100 characters. This suggests that the CamemBERT model often errs with sentences of moderate length. Despite this, there are fewer mistakes at very short and very long sentence lengths, which could indicate that the model handles extreme lengths better or that these lengths are less frequently encountered in the data.
+
+- **Distribution of Sentence Lengths in the Training Data:** On the right, the training data's sentence length distribution mirrors that of the error distribution. It follows a similar bell-shaped curve and peaks around the same range. This similarity indicates that the model's errors are not necessarily due to unusual sentence lengths but rather are representative of the typical lengths seen during training.
+
+**Key Takeaway:**
+The close alignment between the distribution of errors and the overall training data suggests that sentence length alone is not a significant factor in the misclassification errors made by CamemBERT. Instead, the errors might be more closely tied to other factors such as sentence complexity, vocabulary use, or syntactic structures within those typical sentence lengths.
+
+**Implications for Model Improvement:**
+Since sentence length does not appear to disproportionately affect model accuracy, efforts to improve CamemBERT’s performance should perhaps focus on enhancing its understanding of contextual nuances and complex language features rather than adjusting to handle different sentence lengths.
+
+This analysis reaffirms the importance of considering multiple facets of data characteristics when diagnosing and refining machine learning models for natural language processing tasks.
 
 
 ### 9.4. Type of Erros, Overestimation, Underestimation, Adjacent Level Confusion
 
+<div align="center">
+  <img src="images/Types_Erros.png" width="1200" />
+</div>
 
 
 ### 9.5. Type of words errors (POS)
 
+<div align="center">
+  <img src="images/Types_Words_Errors.png" width="800" />
+</div>
 
 
 
