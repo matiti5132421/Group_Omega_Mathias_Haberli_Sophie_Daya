@@ -1032,9 +1032,22 @@ We hope this demonstration gives you a clear understanding of our application an
 Don't forget to watch the video! : [Youtube Video](https://youtu.be/Nv-kFxzV-Ws)
 
 
-
 ## 11. Conclusion
-Summarize the findings, model performance, and insights from the additional analyses. Discuss potential improvements and future work.
+
+In this GitHub repository, we have explored numerous machine learning models for text classification.
+
+Ultimately, we chose the CamemBERT model because it was the most effective according to the various metrics we used in our comparisons with other models.
+
+We also sought to understand the weaknesses of our CamemBERT model by analyzing its errors and behavior.
+
+Moreover, we developed an application that curates YouTube videos based on user preferences and the level of French they select.
+
+Well... That's "already" the end haha! This experience has been very enriching for us, and we hope you enjoyed this GitHub repository and that it helped you get acquainted with the world of machine learning and text classifiers! We hope to see you again soon, and by the way, we are looking for investors 😉 so don't hesitate to write to us!
+
+Mathias Häberli
+Sophie Daya
+
+Your favorite CEOs!
 
 ## 12. References and Participation Report
 
