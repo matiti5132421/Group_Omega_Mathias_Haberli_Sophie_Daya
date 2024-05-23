@@ -844,14 +844,52 @@ This analysis reaffirms the importance of considering multiple facets of data ch
   <img src="images/Types_Erros.png" width="1200" />
 </div>
 
+This section explores the CamemBERT model's error dynamics, focusing on overestimation, underestimation, and adjacent level confusion in the classification of French text difficulties.
+
+#### Overestimation (Actual A1/A2)
+The first bar chart reveals a tendency for the model to predict significantly simpler sentences (actual levels A1/A2) as more challenging (predicted level B1). This overestimation might stem from:
+- **Limited Context**: Simpler sentences may lack the contextual depth needed for the model to accurately gauge difficulty.
+- **Model Bias Toward Intermediate Complexity**: There appears to be a bias where the model overfits features typical of intermediate difficulty levels, mistaking simple constructs for complexity.
+
+#### Underestimation (Actual C1/C2)
+The middle chart indicates that the model frequently underestimates the complexity of sentences at the highest difficulty levels (C1/C2), often predicting them as B2 or even as low as B1 and A2. This underestimation could be due to:
+- **Complex Linguistic Structures Missed**: The model may struggle to fully capture complex sentence structures or sophisticated vocabulary.
+- **Lack of Representative Training Data**: A possible shortage of higher difficulty examples in the training set might lead to less effective learning for these levels.
+
+#### Adjacent Level Confusion
+The final bar chart illustrates significant misclassification between adjacent difficulty levels, such as A1 and A2, or B1 and B2. This suggests:
+- **Subtle Distinctions**: The subtle differences between adjacent levels may be too nuanced for the model to accurately discern.
+- **Feature Overlap**: There is likely a considerable overlap in the linguistic features that define each level, causing confusion during prediction.
+
+#### Conclusion
+The detailed error type analysis sheds light on specific challenges faced by the CamemBERT model:
+- **Overestimation of Simplicity**: The model often rates simple texts (A1, A2) as more difficult than they are.
+- **Underestimation of Complexity**: Conversely, it underplays the complexity of the most advanced texts (C1, C2).
+- **Difficulty Differentiating Adjacent Levels**: There is a notable challenge in distinguishing between levels that are close in complexity.
+
+These insights will guide targeted improvements to the CamemBERT model, such as refining the training dataset to better represent all difficulty levels and enhancing feature extraction techniques to capture more distinct linguistic markers. Enhancing these aspects can significantly boost the model's precision and reliability in classifying text difficulty.
+
 
 ### 9.5. Type of words errors (POS)
+
+The two charts below offer a comparative look at the frequency of part-of-speech (POS) tags in the training data and in the erroneous predictions made by our model.
 
 <div align="center">
   <img src="images/Types_Words_Errors.png" width="800" />
 </div>
 
+#### Observations:
 
+1. **Distribution Similarity**:
+   - The distribution of POS tags in both the training data and the erroneous predictions is notably similar. This indicates that the errors made by the model do not systematically favor any specific part of speech over others.
+
+2. **Common POS Tags**:
+   - Nouns (`NOUN`), adpositions (`ADP`), and determiners (`DET`) dominate both distributions, which is typical for French texts. Their high frequency reflects standard sentence structures, both in correct and mistaken classifications.
+
+3. **Error Analysis**:
+   - Although there are variations in the frequency of some tags like pronouns (`PRON`), adjectives (`ADJ`), and adverbs (`ADV`), these differences are not significantly pronounced. This suggests that the model does not struggle uniquely with these parts of speech but rather maintains a consistent error rate across different tags.
+
+### 9.6. Conclusion of the analysis of the model
 
 
 
