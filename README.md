@@ -1052,7 +1052,44 @@ Your favorite CEOs!
 
 ### 12.1. References
 
+- Hugging Face Model Hub. (n.d.). camembert-base. Retrieved from [https://huggingface.co/camembert-base](https://huggingface.co/docs/transformers/en/model_doc/camembert)
+- Streamlit Tutorial: Streamlit Documentation. (n.d.). Create an App. Retrieved from https://docs.streamlit.io/get-started/tutorials/create-an-app
+- Sirivuri, C. (n.d.). Building Your First Streamlit App: A Step-by-Step Tutorial. Retrieved from https://medium.com/@chaitanyasirivuri/building-your-first-streamlit-app-a-step-by-step-tutorial-e058d5dfe5f4
+- Pandey, P. (2019). Logistic Regression Model Tuning with scikit-learn (Part 1). Retrieved from https://towardsdatascience.com/logistic-regression-model-tuning-with-scikit-learn-part-1-425142e01af5
+- ProjectPro. (2023). Optimize Hyper Parameters of Logistic Regression Model using Grid Search in Python. Retrieved from https://www.projectpro.io/recipes/optimize-hyper-parameters-of-logistic-regression-model-using-grid-search-in-python
+- DataCamp. (n.d.). Decision Tree Classification in Python Tutorial. Retrieved from https://www.datacamp.com/tutorial/decision-tree-classification-python
+- Real Python. (n.d.). Implementing a K-Nearest Neighbors (KNN) Algorithm in Python. Retrieved from https://realpython.com/knn-python/#a-step-by-step-knn-from-scratch-in-python
+- GeeksforGeeks. (n.d.). Random Forest Hyperparameter Tuning in Python. Retrieved from https://www.geeksforgeeks.org/random-forest-hyperparameter-tuning-in-python/
+- GitHub Docs. (n.d.). Managing Your Profile README. Retrieved from https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme
+- Vlachos,M.(2024). Data Science and Machine Learning,Slides, UNIL, MGT502
+
+
 ### 12.2. Participation Report
+
+#### Joint Contributions
+- Contributed to the overall project planning and organization.
+- Collaborated on the data preparation and preprocessing steps.
+- Worked together on the error analysis for the CamemBERT model.
+- Collaborated on creating the presentation video for the project.
+- Documenting the project and writing the README file.
+  
+#### Mathias Häberli
+- Implemented the Decision Tree, Random Forest, and CamemBERT models.
+- Conducted hyperparameter tuning and performance evaluation for the Decision Tree, Random Forest, and CamemBERT models.
+- Analyzed the results and metrics for the Decision Tree, Random Forest, and CamemBERT models.
+- Contributed to the development of the Streamlit application for the real-world application of the best model.
+- Conducted the final analysis and comparison of all models.
+
+#### Sophie Daya
+- Implemented the Logistic Regression and K-Nearest Neighbors (KNN) models.
+- Conducted hyperparameter tuning and performance evaluation for the Logistic Regression and KNN models.
+- Analyzed the results and metrics for the Logistic Regression and KNN models.
+- Writing and Editing the Youtube video on iMovie
+
+
+
+
+
 
 
 
