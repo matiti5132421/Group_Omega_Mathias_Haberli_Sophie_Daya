@@ -278,7 +278,7 @@ We can now print the results and metrics of the Logistic Regression model to see
 
 Overall, the Logistic Regression model demonstrates varying performance across different difficulty levels, with the best results for A1 and C2 levels. These insights can help in understanding where the model excels and where improvements are needed.
 
-## 4. K-Nearest Neighbors (KNN)
+## 4. K-Nearest Neighbors (KNN) Model
 
 The K-Nearest Neighbors (KNN) model is a simple, yet effective, method used for classification tasks. In this section, we utilize KNN to predict the difficulty levels of French sentences. This model classifies sentences based on their similarity to other sentences in the training data.
 
@@ -367,7 +367,7 @@ Finally, we use the best KNN model to make predictions on the validation data (`
 
 The KNN model shows varying performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, indicating that it can accurately identify simpler sentences. However, the performance drops for higher difficulty levels like A2, B1, B2, C1, and C2. The overall accuracy is relatively low at 35.83%, suggesting that while the KNN model can classify some sentences correctly, it struggles with others, particularly those at higher difficulty levels.
 
-## 5. Decision Tree
+## 5. Decision Tree Model
 
 The Decision Tree model is a popular method used for classification tasks. In this section, we use Decision Trees to predict the difficulty levels of French sentences. This model makes decisions based on a series of questions about the input features, leading to a final classification.
 
@@ -463,7 +463,7 @@ report = classification_report(y_val, y_pred, target_names=label_encoder.classes
 
 The Decision Tree model demonstrates moderate performance across different difficulty levels. It performs best in terms of precision and recall for the A1 level, which indicates that it can reasonably identify simpler sentences. However, the performance decreases for higher difficulty levels such as A2, B1, B2, C1, and C2. The overall accuracy is 29.38%, indicating that while the Decision Tree model can classify some sentences correctly, it faces challenges particularly with higher difficulty levels. This suggests that the model may benefit from further tuning or the use of more complex algorithms to improve its performance.
 
-## 6. Random Forest
+## 6. Random Forest Model
 
 The Random Forest model is an ensemble learning method that combines multiple decision trees to improve classification accuracy. In this section, we use Random Forest to predict the difficulty levels of French sentences. This model aggregates the predictions of several decision trees to make a final decision.
 
@@ -798,7 +798,7 @@ Feel free to dive into the leaderboard and see where we stand! Here's the link t
 
 We were Group OMEGA!
 
-## 9. CamemBERT Error Analysis
+## 9. CamemBERT Model Analysis
 
 In this section, we turn our spotlight on our best model, CamemBERT. We will delve into an analysis of the errors made by the model on the testing data. By examining where and why errors occur, we aim to gain a deeper understanding of its behavior. This insight is crucial as it might lead to potential improvements, enhancing the model's performance further. You can find the python code of the following graphs in our code, at the chapter 7.3. Here! : [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
 
@@ -853,7 +853,7 @@ The bar chart clearly shows that the CamemBERT model is more prone to underestim
 This focused analysis of error types not only helps in understanding CamemBERT's current limitations but also directs us towards specific improvements that can enhance its predictive accuracy and reliability. By addressing these points, we can better align the model's performance with the true complexity of language tasks it faces.
 
 
-### 9.3. Distribution of Sentence Lenghts
+### 9.3. Distribution of Sentence Lengths
 
 <div align="center">
   <img src="images/Distribution_Lenghts.png" width="800" />
@@ -875,7 +875,7 @@ Since sentence length does not appear to disproportionately affect model accurac
 This analysis reaffirms the importance of considering multiple facets of data characteristics when diagnosing and refining machine learning models for natural language processing tasks.
 
 
-### 9.4. Type of Erros, Overestimation, Underestimation, Adjacent Level Confusion
+### 9.4. Type of Error: Overestimation, Underestimation, Adjacent Confusion
 
 <div align="center">
   <img src="images/Types_Erros.png" width="1200" />
@@ -907,7 +907,7 @@ The detailed error type analysis sheds light on specific challenges faced by the
 These insights will guide targeted improvements to the CamemBERT model, such as refining the training dataset to better represent all difficulty levels and enhancing feature extraction techniques to capture more distinct linguistic markers. Enhancing these aspects can significantly boost the model's precision and reliability in classifying text difficulty.
 
 
-### 9.5. Type of words errors (POS)
+### 9.5. Type of Words Errors (POS)
 
 The two charts below offer a comparative look at the frequency of part-of-speech (POS) tags in the training data and in the erroneous predictions made by our model.
 
@@ -926,7 +926,7 @@ The two charts below offer a comparative look at the frequency of part-of-speech
 3. **Error Analysis**:
    - Although there are variations in the frequency of some tags like pronouns (`PRON`), adjectives (`ADJ`), and adverbs (`ADV`), these differences are not significantly pronounced. This suggests that the model does not struggle uniquely with these parts of speech but rather maintains a consistent error rate across different tags.
 
-### 9.6. Conclusion of the analysis of the model
+### 9.6. Conclusion of the Model Analysis
 
 #### What Have We Learned from Analyzing Our Model's Errors?
 
@@ -956,7 +956,7 @@ After analyzing the videos, LogoRank presents a list of videos that match the se
 
 
 
-### 10.3. Demonstration in a video
+### 10.3. Demonstration in a Video
 
 In this video, we will introduce you to our project and show you how LogoRank works! 🤩 
 
