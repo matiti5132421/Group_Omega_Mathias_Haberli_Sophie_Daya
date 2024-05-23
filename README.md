@@ -7,11 +7,6 @@ This project aims to predict the difficulty level of French sentences using vari
 
 We are proud to present the first application from our startup, "LogoRank." We hope this README will not only convince you of our approach but also provide you with valuable insights into text classification. Join us on this exciting journey as we push the boundaries of natural language processing and machine learning!
 
-PS: Part ... to ..., you can directly go to ...
-
-
-
-camembert_model.py
 ## Deliverables
 - **GitHub:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
 - **Code:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
@@ -20,7 +15,7 @@ camembert_model.py
 - **Waitlist:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
 
 ## Table of Contents
-1. [Introduction](#1.-introduction)
+1. [Introduction](#1-introduction)
 2. [Data Presentation](#data-presentation)
    - 2.1. [Data Overview](#data-overview)
    - 2.2. [Data Preparation](#data-preparation)
