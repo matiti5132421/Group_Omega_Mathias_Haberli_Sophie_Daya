@@ -1,7 +1,7 @@
 # Predicting the Difficulty of French Text Using AI
 
 **Group OMEGA: Mathias Häberli, Sophie Daya**
-test
+
 ## Project Description
 This project aims to predict the difficulty level of French sentences using various machine learning models, including Logistic Regression, KNN, Decision Tree, Random Forest, and CamemBERT. Throughout this README and the accompanying GitHub repository, we will explore which model is the most capable of classifying French texts according to their difficulty level. Additionally, after demonstrating and training the best model, we will apply it in a real-world scenario: an application.
 
@@ -53,45 +53,47 @@ We are proud to present the first application from our startup, "LogoRank." We h
 1. [Introduction](#1-introduction)
 2. [Data](#2-data)
    - 2.1. [Data Overview](#21-data-overview)
-   - 2.2. [Data Preparation](#data-preparation)
-3. [Logistic Regression Model](#logistic-regression-model)
-   - 3.1. [Definition of the Model](#definition-of-the-model)
-   - 3.2. [Code Explanation](#code-explanation)
-   - 3.3. [Metrics and Results](#metrics-and-results)
-4. [K-Nearest Neighbors (KNN) Model](#k-nearest-neighbors-knn-model)
-   - 4.1. [Definition of the Model](#definition-of-the-model-1)
-   - 4.2. [Code Explanation](#code-explanation-1)
-   - 4.3. [Metrics and Results](#metrics-and-results-1)
-5. [Decision Tree Model](#decision-tree-model)
-   - 5.1. [Definition of the Model](#definition-of-the-model-2)
-   - 5.2. [Code Explanation](#code-explanation-2)
-   - 5.3. [Metrics and Results](#metrics-and-results-2)
-6. [Random Forest Model](#random-forest-model)
-   - 6.1. [Definition of the Model](#definition-of-the-model-3)
-   - 6.2. [Code Explanation](#code-explanation-3)
-   - 6.3. [Metrics and Results](#metrics-and-results-3)
-7. [CamemBERT Model](#camembert-model)
-   - 7.1. [Definition of the Model](#definition-of-the-model-4)
-   - 7.2. [Code Explanation](#code-explanation-4)
-   - 7.3. [Metrics and Results](#metrics-and-results-4)
-8. [Results](#results)
-   - 8.1. [Comparison Table](#comparison-table)
-   - 8.2. [Comparison of Confusion Matrix](#comparison-of-confusion-matrix)
-   - 8.3. [The Best Model CamemBERT](#the-best-model-camembert)
-   - 8.4. [Our Ranking on Kaggle](#our-ranking-on-kaggle)
-9. [CamemBERT Model Analysis](#additional-analysis)
-   - 9.1. [Confusion Matrix of Erroneous Preditions](#sentence-length-analysis)
-   - 9.2. [Distribution of Error Type](#pos-tag-analysis)
-   - 9.3. [Distribution of Sentence Lenghts](#sentence-length-analysis)
-   - 9.4. [Type of Error Overestimation, Underestimation, Adjacent Confusion](#pos-tag-analysis)
-   - 9.5. [Type of words errors (POS)](#pos-tag-analysis)
-   - 9.6. [Conclusion](#pos-tag-analysis)
-10. [Our App LogoRank](#our-app-logorank)
-   - 10.1. [Principle and functionality](#principle-and-functionality)
-   - 10.2. [Principle and functionality](#principle-and-functionality)
-   - 10.3. [Demonstration in a video](#Demonstration-in-a-video)
-11. [Conclusion](#conclusion)
-12. [References and Participation Report](#references)
+   - 2.2. [Data Preparation](#22-data-preparation)
+3. [Logistic Regression Model](#3-logistic-regression-model)
+   - 3.1. [Definition of the Model](#31-definition-of-the-model)
+   - 3.2. [Code Explanation](#32-code-explanation)
+   - 3.3. [Metrics and Results](#33-metrics-and-results)
+4. [K-Nearest Neighbors (KNN) Model](#4-k-nearest-neighbors-knn-model)
+   - 4.1. [Definition of the Model](#41-definition-of-the-model)
+   - 4.2. [Code Explanation](#42-code-explanation)
+   - 4.3. [Metrics and Results](#43-metrics-and-results)
+5. [Decision Tree Model](#5-decision-tree-model)
+   - 5.1. [Definition of the Model](#51-definition-of-the-model)
+   - 5.2. [Code Explanation](#52-code-explanation)
+   - 5.3. [Metrics and Results](#53-metrics-and-results)
+6. [Random Forest Model](#6-random-forest-model)
+   - 6.1. [Definition of the Model](#61-definition-of-the-model)
+   - 6.2. [Code Explanation](#62-code-explanation)
+   - 6.3. [Metrics and Results](#63-metrics-and-results)
+7. [CamemBERT Model](#7-camembert-model)
+   - 7.1. [Definition of the Model](#71-definition-of-the-model)
+   - 7.2. [Code Explanation](#72-code-explanation)
+   - 7.3. [Metrics and Results](#73-metrics-and-results)
+8. [Results](#8-results)
+   - 8.1. [Comparison Table](#81-comparison-table)
+   - 8.2. [Comparison of Confusion Matrix](#82-comparison-of-confusion-matrix)
+   - 8.3. [The Best Model CamemBERT](#83-the-best-model-camembert)
+   - 8.4. [Our Ranking on Kaggle](#84-our-ranking-on-kaggle)
+9. [CamemBERT Model Analysis](#9-camembert-model-analysis)
+   - 9.1. [Confusion Matrix of Erroneous Predictions](#91-confusion-matrix-of-erroneous-predictions)
+   - 9.2. [Distribution of Error Type](#92-distribution-of-error-type)
+   - 9.3. [Distribution of Sentence Lengths](#93-distribution-of-sentence-lengths)
+   - 9.4. [Type of Error: Overestimation, Underestimation, Adjacent Confusion](#94-type-of-error-overestimation-underestimation-adjacent-confusion)
+   - 9.5. [Type of Words Errors (POS)](#95-type-of-words-errors-pos)
+   - 9.6. [Conclusion](#96-conclusion)
+10. [Our App LogoRank](#10-our-app-logorank)
+   - 10.1. [Principle and Functionality](#101-principle-and-functionality)
+   - 10.2. [Code of the App](#102-code-of-the-app)
+   - 10.3. [Demonstration in a Video](#103-demonstration-in-a-video)
+11. [Conclusion](#11-conclusion)
+12. [References and Participation Report](#12-references-and-participation-report)
+   - 12.1. [References](#121-references)
+   - 12.2. [Participation Report](#122-participation-report)
 
 ## 1. Introduction
 To begin with, it is essential to understand that multiple approaches were available to develop our French text difficulty classification model. We experimented with five different machine learning models to achieve the best classification results. These models include:
@@ -950,6 +952,9 @@ Once the keywords and skill level have been entered, LogoRank retrieves the YouT
 
 After analyzing the videos, LogoRank presents a list of videos that match the selected difficulty level of the user. Each video is displayed with its title, a brief description, and the determined difficulty level. This user-friendly interface makes it easy for learners to browse through the results and select videos that are suitable for their learning needs. The interface of the app is designed to be simple and intuitive. Users can easily input their keywords and select their proficiency level. The results are presented in an easy-to-navigate format, showing video titles, the number of recommended videos and links to the videos. Users can quickly find and access the videos most relevant to their learning objectives.
 
+### 10.2. Code of the App
+
+
 
 ### 10.3. Demonstration in a video
 
@@ -971,8 +976,16 @@ Don't forget to watch the video! : [Youtube Video](https://youtu.be/Nv-kFxzV-Ws)
 
 
 
-## Conclusion
+## 11. Conclusion
 Summarize the findings, model performance, and insights from the additional analyses. Discuss potential improvements and future work.
 
-## References
-- List of references and resources.
+## 12. References and Participation Report
+
+### 12.1. References
+
+### 12.2. Participation Report
+
+
+
+
+
