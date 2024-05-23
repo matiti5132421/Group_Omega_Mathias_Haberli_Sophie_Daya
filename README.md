@@ -12,7 +12,7 @@ PS: Part ... to ..., you can directly go to ...
 ## Deliverables
 - **GitHub:** [GitHub Project Page](https://github.com/matiti5132421/Group_Omega_Mathias_Haberli_Sophie_Daya)
 - **Code:** [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
-- **Youtube:** [App Presentation Video](https://youtu.be/yourvideo)
+- **Youtube:** [App Presentation Video](https://youtu.be/Nv-kFxzV-Ws)
 - **Kaggle:** [Kaggle Competition](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/overview)
 - **Waitlist:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
 
@@ -716,8 +716,6 @@ Analyzing the confusion matrices for the CamemBERT and Decision Tree models prov
   <img src="images/Confusion_Matrix_Decision_Tree.png" width="320" />
 </div>
 
-
-
 #### CamemBERT's Performance:
 The confusion matrix for CamemBERT shows a well-distributed pattern of correct predictions across all classes. This model excels in accurately classifying sentences from easier levels (like A1) to more challenging levels (like C2). The relatively balanced off-diagonal elements suggest that while there are some misclassifications, they are mostly close misses within adjacent difficulty levels. This indicates a nuanced understanding of the French language and its various complexities, a strength inherent to the transformer-based architecture of CamemBERT, which leverages deep contextual embeddings.
 
@@ -727,43 +725,104 @@ In contrast, the Decision Tree's confusion matrix displays more pronounced miscl
 
 ### 8.3. The Best Model CamemBERT
 
+CamemBERT has clearly emerged as the frontrunner in our lineup of models, delivering stellar performance across the board. But what really sets CamemBERT apart?
+
+#### Why CamemBERT Dominates:
+- **Advanced Language Understanding**: Built on the robust BERT architecture, CamemBERT excels at grasping the subtleties of language by considering the entire context of sentences. This deep understanding allows it to outperform in precision, meaning it's remarkably accurate in classifying sentence difficulties correctly.
+
+- **Superior Handling of Context**: Unlike simpler models that process words in isolation, CamemBERT views words in relation to their surrounding context, greatly enhancing its interpretative power. This is reflected in its high scores for both recall and accuracy, ensuring that it consistently identifies a wide range of sentence difficulties with high reliability.
+
+- **Robust Architecture and Training**:
+  - **Pre-trained Prowess**: CamemBERT's effectiveness is boosted by its pre-training on a vast corpus of French text, which helps it capture complex language patterns and contextual nuances vital for accurate text classification.
+  - **Transfer Learning**: By fine-tuning the pre-trained model to our specific task, CamemBERT adapts to the peculiarities of classifying text difficulties, making it a model of choice for nuanced tasks.
+
+#### Insights from the Confusion Matrix:
+- **True Positives Galore**: The confusion matrix reveals that CamemBERT accurately classifies sentences into correct difficulty levels across the spectrum, highlighting its efficacy.
+- **Minimized Misclassifications**: Compared to other models, CamemBERT shows fewer errors, demonstrating its precision and ability to avoid common pitfalls like overfitting.
+
+#### In Summary:
+CamemBERT's blend of contextual understanding, advanced training techniques, and a holistic approach to sentence analysis makes it the undisputed champion for our project. It not only understands the 'what' of the language but also the 'why' behind sentence structures, making it invaluable for tasks requiring a deep grasp of linguistic intricacies.
+
+While other models have their merits, CamemBERT's robust capabilities and superior metrics underscore its suitability for high-stakes applications like ours. It's not just about classifying text; it's about understanding language at a level that most models aspire to.
+
+
+
 
 
 ### 8.4. Our Ranking on Kaggle
 
+Finally, we took the plunge into the competitive world of Kaggle! Our challenge? To classify French texts by difficulty level. By deploying the mighty CamemBERT model and fine-tuning its parameters, we achieved an impressive accuracy of 59.1%! However, we landed in 17th place, which only fuels our ambition to push the boundaries further.
+
+**Next Steps on Our Journey**:
+- **Optimization**: We're pumped to enhance our model's accuracy. How? By embracing cutting-edge technologies like OpenAI to implement data augmentation strategies. This will enable our model to grasp the finer nuances of the French language even better.
+- **Persistence Pays**: Our journey doesn’t end here. We’re motivated more than ever to climb the ranks in future competitions, proving that with persistence and the right technology, the sky's the limit!
+
+**Check out the Competition**:
+Feel free to dive into the leaderboard and see where we stand! Here's the link to the Kaggle competition we're battling out: [Predicting the Difficulty of French Texts](https://www.kaggle.com/competitions/predicting-the-difficulty-of-a-french-text-e4s/leaderboard).
+
+We were Group OMEGA!
+
+## 9. CamemBERT Error Analysis
 
 
-### Performance Metrics
-| Metric        | Logistic Regression | KNN  | Decision Tree | Random Forest | CamemBERT |
-|---------------|---------------------|------|---------------|---------------|-----------|
-| Precision     |                     |      |               |               |           |
-| Recall        |                     |      |               |               |           |
-| F1-score      |                     |      |               |               |           |
-| Accuracy      |                     |      |               |               |           |
 
-### Best Model Analysis
-Identify the best model and explain why it is the best model.
+### 9.1. Confusion Matrix of Erroneous Predictions
 
-### Confusion Matrices
-![Confusion Matrix for Logistic Regression](images/logistic_regression_confusion_matrix.png)
-![Confusion Matrix for KNN](images/knn_confusion_matrix.png)
-![Confusion Matrix for Decision Tree](images/decision_tree_confusion_matrix.png)
-![Confusion Matrix for Random Forest](images/random_forest_confusion_matrix.png)
-![Confusion Matrix for CamemBERT](images/camembert_confusion_matrix.png)
 
-### Examples of Erroneous Predictions
-Show examples of erroneous predictions and analyze the errors.
 
-## Additional Analysis
-### Sentence Length Analysis
-![Distribution of Sentence Lengths in Erroneous Predictions](images/erroneous_predictions_length_distribution.png)
-![Distribution of Sentence Lengths in Training Data](images/training_data_length_distribution.png)
+### 9.2. Distribution of Error Type
 
-### POS Tag Analysis
-![POS Tag Frequency in Training Data](images/training_data_pos_tag_frequency.png)
-![POS Tag Frequency in Erroneous Predictions](images/erroneous_predictions_pos_tag_frequency.png)
 
-## Our App LogoRank
+
+### 9.3. Distribution of Sentence Lenghts
+
+
+
+### 9.4. Type of Erros, Overestimation, Underestimation, Adjacent Level Confusion
+
+
+
+### 9.5. Type of words errors (POS)
+
+
+
+
+
+
+## 10. Our App LogoRank
+
+### 10.1. Principle and Functionality
+
+LogoRank is designed to enhance language learning by classifying French YouTube videos by interest and difficulty level (A1 to C2). This enables learners to find content that matches their skill level, guaranteeing an optimal learning experience.
+
+<img width="650" alt="Capture d’écran 2024-05-23 à 11 46 44" src="https://github.com/sophdaya/Omega_SophieDAYA_MathiasHABERLI/assets/168346446/e6fd6e77-38e1-4d68-b21f-048f55d3ab21">
+
+Users start by entering specific keywords related to their interests. For example, if a user is interested in crochet, they can enter the keyword "crochet". This allows the app to focus on retrieving videos that are relevant to the user's interests. Then, users can select their proficiency level, ranging from A1 (beginner) to C2 (advanced). This is crucial because it allows LogoRank to filter and present videos that are appropriate for the user’s current language skills. This step ensures that the content is neither too challenging nor too simple, providing an optimal learning experience.
+
+Once the keywords and skill level have been entered, LogoRank retrieves the YouTube videos linked to the keywords. The application then analyses the transcripts of these videos to determine their level of difficulty. This analysis is powered by the CamemBERT model, a sophisticated machine learning model specifically trained for the French language. The model considers various factors such as vocabulary complexity, sentence structure, and language usage to accurately classify the videos into difficulty levels (A1 to C2). 
+
+After analyzing the videos, LogoRank presents a list of videos that match the selected difficulty level of the user. Each video is displayed with its title, a brief description, and the determined difficulty level. This user-friendly interface makes it easy for learners to browse through the results and select videos that are suitable for their learning needs. The interface of the app is designed to be simple and intuitive. Users can easily input their keywords and select their proficiency level. The results are presented in an easy-to-navigate format, showing video titles, the number of recommended videos and links to the videos. Users can quickly find and access the videos most relevant to their learning objectives.
+
+
+### 10.3. Demonstration in a video
+
+In this video, we will introduce you to our project and show you how LogoRank works! 🤩 
+
+You will learn about:
+
+- *Our mission* to make language learning more accessible and enjoyable.
+
+- *The challenges* learners face in finding content that suits their level.
+
+- *How LogoRank solves these problems* by classifying videos into difficulty levels (A1 to C2).
+
+- *A live demonstration of our app*, including keyword search and video recommendations.
+
+We hope this demonstration gives you a clear understanding of our application and how it can benefit French language learners! 📚😊
+
+Don't forget to watch the video! : [Youtube Video](https://youtu.be/Nv-kFxzV-Ws)
+
+
 
 ## Conclusion
 Summarize the findings, model performance, and insights from the additional analyses. Discuss potential improvements and future work.
