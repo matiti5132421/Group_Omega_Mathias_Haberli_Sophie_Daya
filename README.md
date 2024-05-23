@@ -1044,8 +1044,7 @@ Moreover, we developed an application that curates YouTube videos based on user 
 
 Well... That's "already" the end haha! This experience has been very enriching for us, and we hope you enjoyed this GitHub repository and that it helped you get acquainted with the world of machine learning and text classifiers! We hope to see you again soon, and by the way, we are looking for investors 😉 so don't hesitate to write to us!
 
-Mathias Häberli
-Sophie Daya
+Mathias Häberli and Sophie Daya,
 
 Your favorite CEOs!
 
