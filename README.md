@@ -49,12 +49,17 @@ camembert_model.py
    - 8.2. [Comparison of Confusion Matrix](#comparison-of-confusion-matrix)
    - 8.3. [The Best Model CamemBERT](#the-best-model-camembert)
    - 8.4. [Our Ranking on Kaggle](#our-ranking-on-kaggle)
-9. [Additional Analysis](#additional-analysis)
-   - [Sentence Length Analysis](#sentence-length-analysis)
-   - [POS Tag Analysis](#pos-tag-analysis)
+9. [CamemBERT Model Analysis](#additional-analysis)
+   - 9.1. [Confusion Matrix of Erroneous Preditions](#sentence-length-analysis)
+   - 9.2. [Distribution of Error Type](#pos-tag-analysis)
+   - 9.3. [Distribution of Sentence Lenghts](#sentence-length-analysis)
+   - 9.4. [Type of Error Overestimation, Underestimation, Adjacent Confusion](#pos-tag-analysis)
+   - 9.5. [Type of words errors (POS)](#pos-tag-analysis)
+   - 9.6. [Conclusion](#pos-tag-analysis)
 10. [Our App LogoRank](#our-app-logorank)
-   - [Principle and functionality](#principle-and-functionality)
-   - [Demonstration in a video](#Demonstration-in-a-video)
+   - 10.1. [Principle and functionality](#principle-and-functionality)
+   - 10.2. [Principle and functionality](#principle-and-functionality)
+   - 10.3. [Demonstration in a video](#Demonstration-in-a-video)
 11. [Conclusion](#conclusion)
 12. [References and Participation Report](#references)
 
@@ -763,7 +768,7 @@ We were Group OMEGA!
 
 ## 9. CamemBERT Error Analysis
 
-In this section, we turn our spotlight on our best model, CamemBERT. We will delve into an analysis of the errors made by the model on the testing data. By examining where and why errors occur, we aim to gain a deeper understanding of its behavior. This insight is crucial as it might lead to potential improvements, enhancing the model's performance further.
+In this section, we turn our spotlight on our best model, CamemBERT. We will delve into an analysis of the errors made by the model on the testing data. By examining where and why errors occur, we aim to gain a deeper understanding of its behavior. This insight is crucial as it might lead to potential improvements, enhancing the model's performance further. You can find the python code of the following graphs in our code, at the chapter 7.3. Here! : [Jupyter Notebook](https://colab.research.google.com/drive/1qFdVwjp82fv_aWV2Qpf-62F4_Zq41fXt?usp=sharing)
 
 ### 9.1. Confusion Matrix of Erroneous Predictions
 
@@ -891,7 +896,15 @@ The two charts below offer a comparative look at the frequency of part-of-speech
 
 ### 9.6. Conclusion of the analysis of the model
 
+#### What Have We Learned from Analyzing Our Model's Errors?
 
+Firstly, it's evident that CamemBERT tends to underestimate the difficulty of French texts more than it overestimates. This could indicate that the model might be too cautious, perhaps due to a lack of exposure to sufficiently complex training examples. To tackle this, we might consider augmenting our dataset with more intricate sentences or tweaking the model’s sensitivity to complexity.
+
+Furthermore, analyzing the sentence lengths of misclassifications didn't reveal any groundbreaking insights, as their distribution closely mirrors that of the entire training dataset.
+
+Additionally, the issue of underestimation primarily affects the lower difficulty levels, such as A2, B1, and B2. A potential extension of the model could involve implementing more nuanced feature engineering or adjusting the classification threshold to refine its accuracy at these levels. 
+
+Lastly, the POS tag analysis didn't bring much to the table since the error distribution again closely follows that of the whole training dataset. This similarity suggests that the model’s struggles aren’t tied to specific parts of speech but more to its general approach to sentence complexity.
 
 ## 10. Our App LogoRank
 
