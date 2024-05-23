@@ -50,6 +50,7 @@ We are proud to present the first application from our startup, "LogoRank." We h
 
 - `Jupyter_Notebook.ipynb`: Jupyter Notebook for exploratory data analysis and model experiments.
 - `README.md`: Documentation and overview of the project.
+- `requirements.txt`: List of dependencies required to run the project.
 
 ## Table of Contents
 1. [Introduction](#1-introduction)
