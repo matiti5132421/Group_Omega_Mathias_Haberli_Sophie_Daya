@@ -774,6 +774,27 @@ We were Group OMEGA!
 
 ### 9.2. Distribution of Error Type
 
+### Analyzing CamemBERT's Error Types: Underestimation vs. Overestimation
+
+The bar chart clearly shows that the CamemBERT model is more prone to underestimating the difficulty of texts compared to overestimating them. This insight is crucial as it highlights a fundamental aspect of the model's performance and gives us a clue on what might be adjusted in the training process.
+
+**Why More Underestimation?**
+- **Conservative Classification Bias:** CamemBERT's training might have instilled a conservative bias where the model prefers to assign lower difficulty levels unless there's overwhelming evidence to suggest higher complexity. This could be a result of the model's inherent structure or the way it was trained, possibly on a dataset where higher difficulty texts were not adequately represented or were less distinctly marked.
+  
+- **Feature Sensitivity:** The model may be overly sensitive to features typical of lower difficulty levels, such as basic vocabulary and simpler syntactic structures. When encountering texts that use complex ideas but simpler language, it might mistakenly downgrade their difficulty.
+
+- **Loss Function Calibration:** The loss function used during training could be influencing the model's tendency to err on the side of caution. If misclassifying a text as too easy carries a lesser penalty compared to misclassifying it as too hard, the model will naturally lean towards underestimation.
+
+**Implications and Adjustments:**
+- **Enhanced Training Data:** To counteract underestimation, including more high-difficulty texts in the training set or adjusting their representation could help balance the model's understanding of complexity across the spectrum.
+  
+- **Adjusting Model Parameters:** Tweaking the model’s parameters or the loss function to penalize underestimations more heavily could recalibrate its predictions, encouraging more accurate difficulty assessments.
+
+- **Feature Engineering:** Refining the feature extraction process to better capture and weigh indicators of complexity, such as advanced grammatical structures or higher-level vocabulary, might reduce conservative bias.
+
+This focused analysis of error types not only helps in understanding CamemBERT's current limitations but also directs us towards specific improvements that can enhance its predictive accuracy and reliability. By addressing these points, we can better align the model's performance with the true complexity of language tasks it faces.
+
+Stay tuned as we continue to refine our approach, ensuring our model becomes even more adept at navigating the nuances of text difficulty.
 
 
 ### 9.3. Distribution of Sentence Lenghts
