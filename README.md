@@ -16,8 +16,8 @@ We are proud to present the first application from our startup, "LogoRank." We h
 
 ## Table of Contents
 1. [Introduction](#1-introduction)
-2. [Data Presentation](#data-presentation)
-   - 2.1. [Data Overview](#data-overview)
+2. [Data Presentation](#2-data-presentation)
+   - 2.1. [Data Overview](#21-data-overview)
    - 2.2. [Data Preparation](#data-preparation)
 3. [Logistic Regression Model](#logistic-regression-model)
    - 3.1. [Definition of the Model](#definition-of-the-model)
