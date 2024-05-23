@@ -20,7 +20,7 @@ camembert_model.py
 - **Waitlist:** [Waitlist for our App](https://docs.google.com/forms/d/e/1FAIpQLSc-g1LlU-5fFoKpCgv2n0rtrsx3aghzOXvipW8a8PQBskdMQg/viewform)
 
 ## Table of Contents
-1. [Introduction](#1.introduction)
+1. [Introduction](#1.-introduction)
 2. [Data Presentation](#data-presentation)
    - 2.1. [Data Overview](#data-overview)
    - 2.2. [Data Preparation](#data-preparation)
