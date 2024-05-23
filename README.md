@@ -42,10 +42,10 @@ PS: Part ... to ..., you can directly go to ...
    - 7.2. [Code Explanation](#code-explanation-4)
    - 7.3. [Metrics and Results](#metrics-and-results-4)
 8. [Results](#results)
-   - [Performance Metrics](#performance-metrics)
-   - [Best Model Analysis](#best-model-analysis)
-   - [Confusion Matrices](#confusion-matrices)
-   - [Examples of Erroneous Predictions](#examples-of-erroneous-predictions)
+   - 8.1. [Comparison Table](#comparison-table)
+   - 8.2. [Comparison of Confusion Matrix](#comparison-of-confusion-matrix)
+   - 8.3. [The Best Model CamemBERT](#the-best-model-camembert)
+   - 8.4. [Our Ranking on Kaggle](#our-ranking-on-kaggle)
 9. [Additional Analysis](#additional-analysis)
    - [Sentence Length Analysis](#sentence-length-analysis)
    - [POS Tag Analysis](#pos-tag-analysis)
@@ -670,7 +670,27 @@ This methodology ensures meticulous tracking and optimization of each phase from
 The CamemBERT model demonstrates robust performance across various difficulty levels, particularly excelling in the precision and recall for the A1 level. This indicates that the model is highly effective in accurately identifying simpler sentences. While the model also shows good precision in the C2 level, its recall is lower, suggesting some challenges in consistently identifying the most complex sentences. Overall, the model achieves a solid accuracy of 58.54%, reflecting its capability to handle text classification with a nuanced understanding of French sentence complexity. This performance makes CamemBERT a strong candidate for tasks requiring detailed linguistic analysis, showing potential for further fine-tuning and application in more complex linguistic tasks.
 
 
-## 8. Results Comparison
+## 8. Results
+
+In this section, we will finally compare all the models we have explored by analyzing their performance metrics. We will then determine the best model that we have ultimately used for our application, as well as for achieving our best results on Kaggle!"
+
+### 8.1. Comparison Table
+
+
+
+
+
+### 8.2. Comparison of Confusion Matrix
+
+
+
+### 8.3. The Best Model CamemBERT
+
+
+
+### 8.4. Our Ranking on Kaggle
+
+
 
 ### Performance Metrics
 | Metric        | Logistic Regression | KNN  | Decision Tree | Random Forest | CamemBERT |
