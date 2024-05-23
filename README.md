@@ -745,10 +745,6 @@ CamemBERT's blend of contextual understanding, advanced training techniques, and
 
 While other models have their merits, CamemBERT's robust capabilities and superior metrics underscore its suitability for high-stakes applications like ours. It's not just about classifying text; it's about understanding language at a level that most models aspire to.
 
-
-
-
-
 ### 8.4. Our Ranking on Kaggle
 
 Finally, we took the plunge into the competitive world of Kaggle! Our challenge? To classify French texts by difficulty level. By deploying the mighty CamemBERT model and fine-tuning its parameters, we achieved an impressive accuracy of 59.1%! However, we landed in 17th place, which only fuels our ambition to push the boundaries further.
@@ -768,6 +764,9 @@ We were Group OMEGA!
 
 ### 9.1. Confusion Matrix of Erroneous Predictions
 
+<div align="center">
+  <img src="images/Confusion_Matrix_Erroneous_Prediction.png" width="500" />
+</div>
 
 
 ### 9.2. Distribution of Error Type
